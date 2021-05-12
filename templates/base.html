@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,11 +15,12 @@
     {% block core_css %}
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    
         <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
     {% block extra_css %}
+
     {% endblock %}
 
 
@@ -44,10 +46,10 @@
   </head>
   <body>
     <header class="container-fluid fixed-top-desktop-only">
-            <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
+        <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <h2 class="logo-font text-black my-0"><strong>Artsea</strong> <br>Art workshops</h2>
+                    <h2 class="logo-font text-black my-0">Artsea <br><span class="logo-font-small">The workshop place</span></h2>
                 </a> 
             </div>
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
@@ -112,11 +114,6 @@
                 {% include 'includes/main-nav.html' %}
             </nav>
         </div>
-        <!-- <div id="delivery-banner" class="row text-center">
-            <div class="col bg-black text-white">
-                <h4 class="logo-font my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h4>                
-            </div>            
-        </div> -->
     </header>
 
     {% if messages %}
@@ -124,14 +121,53 @@
     {% endif %}
 
     {% block page_header %}
-
     {% endblock %} 
 
     {% block content %}
     {% endblock %}
 
-    {% block pagefooter%}
-    {% endblock %}
+     <footer class="page-footer font-small blue pt-4">
+
+ <!-- Footer -->
+<footer class="page-footer font-small elegant-color fixed-bottom pt-4">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-4 text-center font-weight-bold">
+            Contact: art.workshops@gmail.com
+        </div>
+        <div class="col-md-4">
+          <!-- Copyright -->
+            <div class="footer-copyright text-center font-weight-bold">2021 Copyright © Artsea
+        
+            </div>
+            <!-- Copyright -->
+        </div>
+        <div class="col-md-4 text-center font-weight-bold">
+            <!-- Social buttons -->
+            <ul class="list-unstyled list-inline text-center">
+            <li class="list-inline-item">
+                <a class="btn-floating btn-fb mx-1">
+                <i class="fab fa-facebook-f"> </i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="btn-floating btn-tw mx-1">
+                <i class="fab fa-instagram"> </i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="btn-floating btn-gplus mx-1">
+                <i class="fab fa-pinterest"> </i>
+                </a>
+            </li>
+            </ul>
+            <!-- Social buttons -->
+        </div>
+    </div>
+  </div>
+  
+</footer>
+<!-- Footer -->
 
     {% block postloadjs %}
         <!-- <script type="text/javascript">

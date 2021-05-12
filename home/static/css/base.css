@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Goblin+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&display=swap');
 
 
 html {
@@ -10,14 +11,12 @@ header{
 
 #hero_image{
     background: url('../media/homepage_head.jpeg') no-repeat center center fixed;
-    background-size: cover;
-    height: calc(100vh - 164px);
-    /* height: 500px; */
+    background-size: contain;
+    /* height: calc(100vh - 164px); */
+    height: 480px;
     width: 100%;
 }
 body {
-    height: 250px;
-    color: #555;
     font-family: 'Lato';
 }
 
@@ -35,13 +34,21 @@ footer {
 }
 
 .logo-font {
-    font-family: 'Goblin One', cursive;
-     
-    /* text-transform: uppercase; */
+    font-family: 'Goblin One', cursive;     
 }
 
 .logo-font-small{
     font-family: 'Caveat', cursive;
+}
+
+.home-text{
+    font-family: 'Caveat', cursive;
+    font-size: 25px;  
+}
+
+.home-text p{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
 }
 
 .main-logo-link {
@@ -101,6 +108,17 @@ footer {
     }
 
     .header-container {
-        padding-top: 164px;
+        /* padding-top: 164px; */
+        padding-top: 60px;
+
+    }
+}
+
+/* on small screen */
+@media screen and (max-width: 600px)  {
+    #hero_image{
+        background: url('../media/homepage_head.jpeg') no-repeat fixed;
+        height: 200px;
+        width: 100%;
     }
 }

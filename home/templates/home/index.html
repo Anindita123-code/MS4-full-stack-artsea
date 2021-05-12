@@ -1,6 +1,29 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block content %}
-    <h1 class="display-4 text-success"></h1> 
+{% block page_header %}
+    <div id="hero_image" class="">
+        header
+    </div>
 {% endblock %}
+
+{% block content %}
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-7 col-md-6 my-auto">
+                <p class="display-4 logo-font-small text-black">
+                    Artsea is a place where we Create, Connect and Care through the language of Art.
+                    <br>Our mission is to provide a supportive community driven space, from which creative spirits can develop and share in artistic processes.
+                    <br>We aim to generate creative events that educate and expand the community at large by encouraging neighbourhood involvement in the arts,
+                    <br>Our goal is to boost the creative community and make art truly available to everyone.
+                </p>
+                <div class="my-5">
+                    <h4>
+                        <a href="" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Shop Now</a>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

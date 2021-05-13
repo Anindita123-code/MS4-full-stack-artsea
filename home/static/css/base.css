@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Goblin+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap');
 
 html {
     height: 100%;
@@ -10,7 +9,7 @@ header{
 }
 
 #hero_image{
-    background: url('../media/homepage_head.jpeg') no-repeat center center fixed;
+   background: url('../media/homepage_head.jpeg') no-repeat center center fixed; 
     background-size: contain;
     /* height: calc(100vh - 164px); */
     height: 480px;
@@ -46,19 +45,19 @@ footer {
     font-size: 25px;  
 }
 
-.home-text p{
+.nav-text{
     font-family: 'Cormorant Garamond', serif;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .main-logo-link {
     width: fit-content;
 }
 
-.shop-now-button {
-    background: black;
+.explore-button {
+    background: rgb(22, 70, 124);
     color: white;
-    min-width: 260px;
+    min-width: 200px;
 }
 
 .btn-black {
@@ -66,9 +65,9 @@ footer {
     color: white;
 }
 
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
+.explore-button:hover,
+.explore-button:active,
+.explore-button:focus,
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
@@ -109,7 +108,7 @@ footer {
 
     .header-container {
         /* padding-top: 164px; */
-        padding-top: 60px;
+        padding-top: 40px;
 
     }
 }

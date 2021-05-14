@@ -3,7 +3,7 @@ from django.contrib import messages
 from .models import Workshop
 from .forms import WorkshopForm
 
-from bootstrap_datepicker_plus import DateTimePickerInput
+# from bootstrap_datepicker_plus import DateTimePickerInput
 
 # Create your views here.
 
@@ -21,8 +21,7 @@ def add_workshops(request):
         form = WorkshopForm()
 
     template = 'workshop/add_workshop.html'
-    form.fields['from_date'].widget = DateTimePickerInput()
-    form.fields['to_date'].widget = DateTimePickerInput()
+ 
     context = {
         'form': form,
     }

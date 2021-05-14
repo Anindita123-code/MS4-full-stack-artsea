@@ -14,5 +14,7 @@ class WorkshopForm(forms.ModelForm):
 
             self.fields['cateogory_name'].choices = friendly_name
 
-            for field_name, field in self.fields.items():
+            for field in self.fields.items():
                 field.widget.attrs['class'] = 'border-black rounded-0'
+
+

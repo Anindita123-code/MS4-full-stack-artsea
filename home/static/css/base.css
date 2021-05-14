@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Goblin+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Goblin+One&family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap');
 
 html {
@@ -46,8 +46,13 @@ footer {
 }
 
 .nav-text{
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 25px;
+    /* font-family: 'Cormorant Garamond', serif; */
+    font-family: 'Roboto';
+    font-size: 20px;
+}
+
+.nav-padding{
+    padding: 2em 0em;
 }
 
 .form-title{
@@ -98,6 +103,15 @@ footer {
     background: #000 !important;
 }
 
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
+}
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */

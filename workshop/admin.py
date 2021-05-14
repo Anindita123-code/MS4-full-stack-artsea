@@ -2,6 +2,8 @@ from django.contrib import admin
 from .models import Workshop, Category
 
 # Register your models here.
+
+
 class WorkshopAdmin(admin.ModelAdmin):
     list_display = (
         'category_name',
@@ -15,6 +17,7 @@ class WorkshopAdmin(admin.ModelAdmin):
         'image',
     )
     ordering = ('workshop_name',)
+
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (

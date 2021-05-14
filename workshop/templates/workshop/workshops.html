@@ -2,162 +2,68 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
+    <div class="container header-container-form">
         <div class="row">
             <div class="col"></div>
         </div>
     </div>
 {% endblock %}
 
+
 {% block content %}
 <div class="overlay"></div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col text-center mt-3">
-            <h2 class="logo-font">Workshops</h2>
-             {% for c in current_categories %}
-                <a class="category-badge text-decoration-none" href="{% url 'workshop' %}?category={{ c.name }}">
-                    <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ c.friendly_name }}</span>
-                </a>
-            {% endfor %}
-            <hr class="w-50 mb-1">
+        <div class="col text-left mt-3">
+            <br><br><br>
+            <h2 class="form-title">Workshops</h2>
         </div>
     </div>
-    <div class="row">
-        <div class="product-container col-10 offset-1">
+     <div class="row">
+        <div class="workshop-container col-10 offset-1">
             <div class="row mt-1 mb-2">
-                    <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
-                        <div class="sort-select-wrapper w-50">
-                            <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
-                                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-                                <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
-                                <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
-                                <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
-                                <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 order-md-first">
-                        <p class="text-muted mt-3 text-center text-md-left">
-                            {% if search_term or current_categories or current_sorting != 'None_None' %}
-                                <span class="small"><a href="{% url 'workshops' %}">Workshop Home</a> | </span>
-                            {% endif %}
-                            {{ workshop|length }} Workshops{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
-                        </p>
-                    </div>
-                </div>
-            
-                <div class="row">
-                    {% for w in workshops %}
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="card h-100 border-0">
-                                {% if product.image %}
-                                <a href="{% url 'workshop_detail' workshop.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ workshop.image.url }}" alt="{{ product.name }}">
-                                </a>
-                                {% else %}
-                                <a href="{% url 'workshop_detail' workshop.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                                </a>
+
+            </div>
+            <div class="row">
+                {% for workshop in workshops %}
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                    <div class="card h-100 border-0">
+                        {% if workshop.image %}
+                        <!-- <div class="card" style="width: 18rem;"> -->
+                            <a href="{% url 'workshop_details' workshop.id %}">
+                                <img height="300" class="card-img-top " src="{{ workshop.image.url }}" alt="{{ workshop.name }}">
+                            </a>
+                        {% else %}
+                            <a href="{% url 'workshop_details' workshop.id %}">
+                                <img height="300" class="card-img-top img-fluid" src="/media/No_Image.jpeg" alt="{{ workshop.name }}">
+                            </a>
+                        {% endif %}
+                            <div class="card-body pb-0">
+                                <h5 class="card-title">{{ workshop.title }}</h5>
+                                {% if workshop.category_name %}
+                                <p class="small mt-1 mb-0">
+                                    <a class="text-muted" href="{% url 'workshops' %}?category={{ workshop.category.name }}">
+                                        <i class="fas fa-tag mr-1"></i>{{ workshop.category_name.friendly_name }}
+                                    </a>
+                                </p>
                                 {% endif %}
-                                <div class="card-body pb-0">
-                                    <p class="mb-0">{{ workshop.title }}</p>
-                                </div>
-                                <div class="card-footer bg-white pt-0 border-0 text-left">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="lead mb-0 text-left font-weight-bold">${{ workshop.price }}</p>
-                                            {% if workshop.category %}
-                                                <p class="small mt-1 mb-0">
-                                                    <a class="text-muted" href="{% url 'workshops' %}?category={{ workshop.category.name }}">
-                                                        <i class="fas fa-tag mr-1"></i>{{ workshop.category.friendly_name }}
-                                                    </a>
-                                                </p>
-                                                {% endif %}
-                                          
-                                            {% if request.user.is_superuser %}
-                                                <small class="ml-3">
-                                                    <a href="{% url 'edit_workshop' workshop.id %}">Edit</a>
-                                                    <a class="text_danger" href="">Delete</a>
-                                                </small>
-                                            {% endif %}
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
-                        </div>
-                        <!-- The solution here is that we need to render this column on small and medium screens
-                            only when the iteration number of the loop is divisible by two.
-                            Because there will be two six-column products in each row
-                            So every set of two products, because that'll add up to twelve columns.
-                            That's where we want to render the extra one.
-                            I'll accomplish this by using a couple of built-in django template tags in an if statement.
-                            Let's say if for loop.counter Is divisible by two Then we want to render this column.
-                            And it'll be visible only on small and medium screens. So we'll use display small block.
-                            Display medium block And display large none to hide it on large and up.
-                            On large screens, we need to do the same. But there will be three products in each row.
-                            So let's use divisible by three hiding it on everything except large.
-                            And finally let's handle extra-large screens which will have four products
-                            in each row so we'll want to render this extra one every four columns.
-                            I am also going to wrap the extra small horizontal rule in a similar if statement.
-                            Just to be explicit about what we're doing though obviously, this isn't necessary
-                            since the counter will always be divisible by one. -->
-                        {% if forloop.counter|divisibleby:1 %}
-                            <div class="col-12 d-sm-none mb-5">
-                                <hr>
+                          
+                            <div class="card-body">
+                                {% if request.user.is_superuser %}
+                                    <a href="{% url 'edit_workshop' workshop.id %}">Edit</a>
+                                    <a class="text_danger" href="">Delete</a>
+                                {% endif %}
                             </div>
-                        {% endif %}                        
-                        {% if forloop.counter|divisibleby:2 %}
-                            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:3 %}
-                            <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                        {% if forloop.counter|divisibleby:4 %}
-                            <div class="col-12 d-none d-xl-block mb-5">
-                                <hr>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
+                        <!-- </div> -->
+
+                    </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>
-    <div class="btt-button shadow-sm rounded-0 border border-black">
-        <a class="btt-link d-flex h-100">
-            <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
-        </a>	
-    </div>
+</div>
 {% endblock %}
 {% block postloadjs %}
-{{ block.super }}
-    <script type="text/javascript">
-		$('.btt-link').click(function(e) {
-			window.scrollTo(0,0)
-		})
-	</script>
-    <script type="text/javascript">
-    $(sort-selector).change(function(){
-        var selector = $(this);
-        var currentUrl = new URL(windows.location);
-
-        var selectedVal = selector.val();
-        if (selectedVal != 'reset'){
-            var sort = selectedVal.split("_")[0];
-            var direction = selectedVal.split("_")[1];
-            currentUrl.searchParams.set("sort", sort);
-            currentUrl.searchParams.set("direction", direction)
-            windows.location.replace(currentUrl)
-        }
-        else{
-            currentUrl.searchParams.delete("sort")
-            currentUrl.searchParams.delete("direction")
-            windows.location.replace(currentUrl)
-        }
-    })
-    </script>
 {% endblock %}

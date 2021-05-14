@@ -12,9 +12,10 @@ def add_workshops(request):
     if request.method == 'POST':
         form = WorkshopForm(request.POST, request.FILES)
         if form.is_valid():
+            # print(form)
             form.save()
             messages.success(request, 'successfully added workshop data')
-            return redirect(reverse('add_workshops'))
+            return redirect(reverse('add_workshop'))
         else:
             messages.error(request, 'Failed to add Workshop. Please ensure that the form is valid')
     else:

@@ -1,20 +1,24 @@
 from django import forms
 from .models import Workshop, Category
+# from .widgets import CustomClearableFileInput
 
 
 class WorkshopForm(forms.ModelForm):
+
     class Meta:
         model = Workshop
         fields = '__all__'
 
-        def __init__(self, *args, **kwargs):
-            super().__init__(*args, **kwargs)
-            categories = Category.objects.all()
-            friendly_name = [(c.id, c.get_friendly_name()) for c in categories]
+    # image = forms.ImageField(label='image', required=False, widget=CustomClearableFileInput)
 
-            self.fields['cateogory_name'].choices = friendly_name
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        categories = Category.objects.all()
+        friendly_name = [(c.id, c.get_friendly_name()) for c in categories]
 
-            for field in self.fields.items():
-                field.widget.attrs['class'] = 'border-black rounded-0'
+        self.fields['category_name'].choices = friendly_name
+
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'border-black rounded-0'
 
 

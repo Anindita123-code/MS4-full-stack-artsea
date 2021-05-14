@@ -35,10 +35,11 @@
                             </a>
                         {% else %}
                             <a href="{% url 'workshop_details' workshop.id %}">
-                                <img height="300" class="card-img-top img-fluid" src="/media/No_Image.jpeg" alt="{{ workshop.name }}">
+                                <img height="300" class="card-img-top" src="/media/No_Image.jpeg" alt="{{ workshop.name }}">
                             </a>
                         {% endif %}
                             <div class="card-body pb-0">
+                                 <p class="lead mb-0 text-left font-weight-normal">dkk {{ workshop.price }}</p>
                                 <h5 class="card-title">{{ workshop.title }}</h5>
                                 {% if workshop.category_name %}
                                 <p class="small mt-1 mb-0">

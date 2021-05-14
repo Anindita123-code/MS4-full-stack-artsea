@@ -50,6 +50,11 @@ footer {
     font-size: 25px;
 }
 
+.form-title{
+    font-family: 'Goblin One', cursive; 
+    font-size: 20px;   
+}
+
 .main-logo-link {
     width: fit-content;
 }
@@ -109,7 +114,9 @@ footer {
     .header-container {
         /* padding-top: 164px; */
         padding-top: 40px;
-
+    }
+    .header-container-form{
+        padding-top: 100px;
     }
 }
 

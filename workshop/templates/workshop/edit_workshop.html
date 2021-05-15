@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container-page">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h2 class="form-title mb-4">Workshop Management</h2>
+                <h5 class="text-muted">Edit Workshop</h5>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <form method="POST" action="{% url 'edit_workshop' workshop.id %}" class="form mb-2" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <div class="text-right">
+                        <br>
+                        <a class="btn btn-outline-black rounded-0" href="{% url 'workshops' %}">Cancel</a>
+                        <button class="btn btn-black rounded-0" type="submit">Edit Workshop</button>
+                    </div>
+                </form>
+                <br>
+                <br>
+              <br>
+            </div>            
+        </div>
+    </div>
+    <div class="overlay"></div>    
+{% endblock %}
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $('#new-image').change(function() {
+            var file = $('#new-image')[0].files[0];
+            $('#filename').text(`Image will be set to: ${file.name}`);
+        });
+    </script>
+{% endblock %}

@@ -138,6 +138,17 @@ footer {
     .header-container-form{
         padding-top: 100px;
     }
+    .header-container-page{
+        padding-top: 200px;
+    }
+
+    .custom-toast {
+        overflow: visible;
+    }
+
+    .toast-capper {
+        height: 2px;
+    }
 }
 /* bootstrap toasts */
 

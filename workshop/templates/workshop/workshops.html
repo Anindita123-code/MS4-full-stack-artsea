@@ -43,7 +43,7 @@
                                 <h5 class="card-title">{{ workshop.title }}</h5>
                                 {% if workshop.category_name %}
                                 <p class="small mt-1 mb-0">
-                                    <a class="text-muted" href="{% url 'workshops' %}?category={{ workshop.category.name }}">
+                                    <a class="text-muted" href="{% url 'workshops' %}?category={{ workshop.category_name }}">
                                         <i class="fas fa-tag mr-1"></i>{{ workshop.category_name.friendly_name }}
                                     </a>
                                 </p>

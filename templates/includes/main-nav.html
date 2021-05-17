@@ -5,11 +5,12 @@
                 <strong>Workshops</strong>
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-workshop-link">
-                <a href="" class="dropdown-item">Water Color</a>
-                <a href="" class="dropdown-item ">Acrylic</a>
-                <a href="" class="dropdown-item ">Oil Paints</a>
-                <a href="" class="dropdown-item">Calligraphy</a>
-                <a href="" class="dropdown-item ">Sketching</a>
+                <a href="{% url 'workshops' %}" class="dropdown-item">All</a>
+                <a href="{% url 'workshops' %}?category=water_color" class="dropdown-item">Water Color</a>
+                <a href="{% url 'workshops' %}?category=acrylic" class="dropdown-item ">Acrylic</a>
+                <a href="{% url 'workshops' %}?category=oil_paint" class="dropdown-item ">Oil Paints</a>
+                <a href="{% url 'workshops' %}?category=calligraphy" class="dropdown-item">Calligraphy</a>
+                <a href="{% url 'workshops' %}?category=sketching" class="dropdown-item ">Sketching</a>
             </div>
         </li>
         <li class="nav-item dropdown">

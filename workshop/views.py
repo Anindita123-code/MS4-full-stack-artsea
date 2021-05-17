@@ -2,6 +2,8 @@ from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.contrib import messages
 from .models import Workshop, Category
 from .forms import WorkshopForm
+from django.db.models import Q
+
 
 def add_workshops(request):
     if request.method == 'POST':
@@ -24,44 +26,35 @@ def add_workshops(request):
     return render(request, template, context)
 
 
-# def edit_workshop(request, workshop_id):
-#     workshop = get_object_or_404(Workshop, pk=workshop_id)
-#     # print(workshop)
-#     # if request.method == 'POST':
-#     #     form = WorkshopForm(request.POST, request.FILES, instance=workshop)
-#     #     if form.is_valid():
-#     #         form.save()
-#     #         messages.success(request, 'Successfully updated workshop!')
-#     #         return redirect(reverse('workshop_detail', args=[workshop.id]))
-#     #     else:
-#     #         messages.error(request, 'Failed to update product. Please ensure the form is valid.')
-#     # else:
-#     form = WorkshopForm(instance=workshop)
-#     messages.info(request, f'You are editing {workshop.title}')
-
-#     template = 'workshop/edit_workshop.html'
-#     context = {
-#         'form': form,
-#         'workshop': workshop,
-#     }
-
-#     return render(request, template, context)
-
-
-def all_workshops(request):
-    
+def all_workshops(request): 
     workshops = Workshop.objects.all()
-    query = None
+    _query = None
     categories = None
     template = 'workshop/workshops.html'
     if request.GET:
+
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             workshops = workshops.filter(category_name__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
+
+        if 'query' in request.GET:
+            _query = request.GET['query']
+            if not _query:
+                messages.error(request, 'you didnot enter any search criteria')
+                return redirect(reverse('workshops'))
+
+            queries = Q(
+                title__icontains=_query) | Q(description__icontains=_query)
+
+            workshops = workshops.filter(queries)
+            # if workshops is None:
+            #     messages.info(request, "No matching records found!")
+
     context = {
         'workshops': workshops,
         'current_categories': categories,
+        'search_term': _query,
     }
 
     return render(request, template, context)
@@ -97,3 +90,15 @@ def edit_workshop(request, workshop_id):
         'workshop': workshop,
     }
     return render(request, template , context)
+
+
+def delete_workshop(request, workshop_id):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry! Only Administrator can do that')
+        return redirect(reverse('home'))
+        
+    workshop = get_object_or_404(Workshop, pk=workshop_id)
+    workshop.delete()
+    messages.success(request, 'Workshop Deleted!')
+
+    return redirect(reverse('workshops'))

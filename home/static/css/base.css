@@ -95,6 +95,10 @@ footer {
     color: #000 !important;
 }
 
+.text-info {
+    color: rgb(241, 237, 237) !important;
+}
+
 .border-black {
     border: 1px solid black !important;
 }

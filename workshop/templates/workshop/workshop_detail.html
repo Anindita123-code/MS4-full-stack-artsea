@@ -22,7 +22,7 @@
                         </a>
                         {% else %}
                         <a href="">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}No_Image.jpeg" alt="{{ workshop.name }}">
+                            <img class="card-img-top img-fluid" src="/media/No_Image.jpeg" alt="{{ workshop.name }}">
                         </a>
                     {% endif %}
                 </div>
@@ -30,7 +30,7 @@
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="workshop-details-container mb-5 mt-md-5">
                     <p class="mb-0">{{ workshop.name }}</p>
-                    <p class="lead mb-0 text-left font-weight-bold">${{ workshop.price }}</p>
+                    <p class="lead mb-0 text-left font-weight-bold">DKK {{ workshop.price }}</p>
                     {% if workshop.category %}
                     <p class="small mt-1 mb-0">
                         <a class="text-muted" href="{% url 'workshop' %}?category={{ workshop.category.name }}">
@@ -80,7 +80,7 @@
                                     <span class="icon">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
-                                    <span class="text-uppercase">Buy More..</span>
+                                    <span class="text-uppercase">Buy More</span>
                                 </a>
                                 <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
                             </div>
@@ -92,6 +92,7 @@
             </div>
         </div>
     </div>
+    <br><br><br>
 {% endblock %}
 {% block postloadjs %}
 

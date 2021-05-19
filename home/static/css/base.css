@@ -116,6 +116,29 @@ footer {
 	background: white;
 	z-index: -1;
 }
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
+.update-link, 
+.update-link:visited { 
+    color: blue !important;
+}
+
+.update-link:hover{
+    color: black !important;
+}
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */

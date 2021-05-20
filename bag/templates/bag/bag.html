@@ -38,10 +38,10 @@
                             {% for item in bag_items %}
                                 <tr>
                                     <td class="p-3 w-25">
-                                        {% if workshop.image %}
-                                            <img height=30% width=30% class="img-fluid rounded" src="{{ item.workshop.image.url }}" alt="{{ workshop.name }}">
+                                        {% if item.workshop.image %}
+                                            <img height=30% width=30% class="img-fluid rounded" src="{{ item.workshop.image.url }}" alt="{{ workshop.title }}">
                                         {% else %}
-                                             <img height=30% width=30% class="img-fluid rounded" src="/media/No_Image.jpeg" alt="{{ workshop.name }}">
+                                             <img height=30% width=30% class="img-fluid rounded" src="/media/No_Image.jpeg" alt="{{ workshop.title }}">
                                         {% endif %}
                                     </td>
                                     <td class="py-3">
@@ -107,7 +107,7 @@
                                         </span>
                                         <span class="text-uppercase">Buy More</span>
                                     </a>
-                                    <a href="" class="btn btn-black rounded-0 btn-lg">
+                                    <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
                                         <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>

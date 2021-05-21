@@ -41,13 +41,15 @@ select option[value=""]{
     color: #aab7c4 !Important;
 }
 
+/* loading overlay div for the spinner */
+
 #loading-overlay{
     display: none;
     position: fixed;
     top: 0px;
     left: 0px;
     height: 100%;
-    background: rgba(12, 12, 12, 12);
+    background: #b9859b;
     z-index: 9999;
 }
 .loading-spinner{

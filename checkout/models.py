@@ -6,6 +6,7 @@ from django.conf import settings
 
 from workshop.models import Workshop
 
+
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
     full_name = models.CharField(max_length=50, null=False, blank=False)
@@ -52,6 +53,7 @@ class Order(models.Model):
         self.delivery_cost = 0
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
+
 
 class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False,

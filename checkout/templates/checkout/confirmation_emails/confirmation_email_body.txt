@@ -1,0 +1,28 @@
+Dear
+{{ order.full_name }}!
+
+{{ order.town_or_city }}, 
+{{ order.country }}
+
+This is a confirmation of your enrollment of workshops at Artsea and your spot has been reserved.
+
+Your order information is below:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+Order Total: ${{ order.order_total }}
+Delivery: ${{ order.delivery_cost }}
+Grand Total: ${{ order.grand_total }}
+
+Please carry a softcopy of this email on the day of the workshop. 
+
+We've got your phone number on file as {{ order.phone_number }}.
+
+For any further queries, please feel free to get in touch with {{ contact_email }}
+
+Thank you for your order!
+
+Sincerely,
+
+Artsea - The workshop place

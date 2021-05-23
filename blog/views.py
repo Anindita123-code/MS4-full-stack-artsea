@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .forms import BlogForm
 
 
 def blog_list(request): 
@@ -6,4 +7,12 @@ def blog_list(request):
 
 
 def add_blog(request):
-    return render(request, 'blog/add_blog.html')
+    form = BlogForm()
+    template = 'blog/add_blog.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+    

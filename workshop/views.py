@@ -6,6 +6,7 @@ from django.db.models import Q
 
 from django.contrib.auth.decorators import login_required
 
+
 @login_required
 def add_workshops(request):
     if request.method == 'POST':

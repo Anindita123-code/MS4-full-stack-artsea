@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'bag',
     'checkout',
     'profiles',
+    'blog',
    
     # 'bootstrap_datepicker_plus',
     # 'bootstrap4'

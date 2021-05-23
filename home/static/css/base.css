@@ -153,7 +153,7 @@ footer {
 }
 
 /* fixed top navbar only on medium and up */
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
     .fixed-top-desktop-only {
         position: fixed;
         top: 0;
@@ -190,17 +190,14 @@ footer {
         width: 100%;
     }
     .header-container-page{
-        padding-top: 100px;
+        padding-top: 25px;
     }   
 }
 
-@media screen and (min-width: 320px)  {
+@media screen and (max-width: 480px)  {
     .navbar {
         padding: 0 !important;
-    }
-    .header-container-page{
-        padding-top: 25px;
-    }  
+    } 
 }
 
 /* bootstrap toasts */

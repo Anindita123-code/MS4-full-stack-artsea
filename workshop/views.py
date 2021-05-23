@@ -4,12 +4,13 @@ from .models import Workshop, Category
 from .forms import WorkshopForm
 from django.db.models import Q
 
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def add_workshops(request):
     if request.method == 'POST':
         form = WorkshopForm(request.POST, request.FILES)
         if form.is_valid():
-            # print(form)
             form.save()
             messages.success(request, 'successfully added workshop data')
             return redirect(reverse('add_workshop'))
@@ -69,6 +70,7 @@ def workshop_details(request, workshop_id):
     return render(request, 'workshop/workshop_detail.html', context)
 
 
+@login_required
 def edit_workshop(request, workshop_id):
     workshop = get_object_or_404(Workshop, pk=workshop_id)
     if request.method == 'POST':
@@ -92,6 +94,7 @@ def edit_workshop(request, workshop_id):
     return render(request, template , context)
 
 
+@login_required
 def delete_workshop(request, workshop_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry! Only Administrator can do that')

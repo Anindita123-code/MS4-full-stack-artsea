@@ -1,4 +1,3 @@
-
 from django.http import HttpResponse
 
 from django.core.mail import send_mail
@@ -32,28 +31,23 @@ class StripeWH_Handler:
         cust_email = order.email
 
         print(cust_email)
-        
-        subject = render_to_string(
-            'checkout/confirmation_emails/confirmation_email_subject.txt',
-            {'order': order})
-        body = render_to_string(
-            'checkout/confirmation_emails/confirmation_email_body.txt',
-            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
-        
-        send_mail(
-            subject,
-            body,
-            settings.DEFAULT_FROM_EMAIL,
-            [cust_email]
-        )        
-    def handle_payment_intent_payment_failed(self, event):
-        """
-        Handle the payment_intent.payment_failed webhook from Stripe
-        """
-        return HttpResponse(
-            content=f'Payment failed Webhook received: {event["type"]}',
-            status=200)
 
+        # subject = render_to_string(
+        #     'checkout/confirmation_emails/confirmation_email_subject.txt',
+        #     {'order': order})
+        # body = render_to_string(
+        #     'checkout/confirmation_emails/confirmation_email_body.txt',
+        #     {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+        
+        # send_mail(
+        #     subject,
+        #     body,
+        #     settings.DEFAULT_FROM_EMAIL,
+        #     [cust_email]
+        # ) 
+
+
+ 
     def handle_payment_intent_succeeded(self, event):
         """
         Handle the payment_intent.succeeded webhook from Stripe
@@ -66,7 +60,8 @@ class StripeWH_Handler:
         billing_details = intent.charges.data[0].billing_details
         grand_total = round(intent.charges.data[0].amount / 100, 2)
 
-    # Update profile information if save_info was checked
+        # Update profile information if save_info was checked
+        
         profile = None
         username = intent.metadata.username
         if username != 'AnonymousUser':
@@ -106,7 +101,7 @@ class StripeWH_Handler:
             try:
                 order = Order.objects.create(
                     full_name=billing_details.name,
-                    # user_profile=profile,
+                    user_profile=profile,
                     email=billing_details.email,
                     phone_number=billing_details.phone,
                     country=billing_details.address.country,
@@ -136,3 +131,11 @@ class StripeWH_Handler:
             content=f'Webhook received: {event["type"]}|SUCCESS:Created order in webhook',
             status=200)
 
+
+    def handle_payment_intent_payment_failed(self, event):
+            """
+            Handle the payment_intent.payment_failed webhook from Stripe
+            """
+            return HttpResponse(
+                content=f'Payment failed Webhook received: {event["type"]}',
+                status=200)

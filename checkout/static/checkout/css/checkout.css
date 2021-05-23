@@ -43,7 +43,7 @@ select option[value=""]{
 
 /* loading overlay div for the spinner */
 
-/* #loading-overlay {
+#loading-overlay {
 	display: none;
 	position: fixed;
     top: 0;
@@ -60,7 +60,7 @@ select option[value=""]{
     justify-content: center;
     margin: 0;
     height: 100%;
-} */
+}
 
 .fieldset-label{
     position: relative;

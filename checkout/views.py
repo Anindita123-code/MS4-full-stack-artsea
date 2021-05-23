@@ -88,10 +88,11 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
+        # print(intent)
 
         # Update profile information if save_info was checked
         profile = None
-        # username = intent.metadata.username
+       
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)

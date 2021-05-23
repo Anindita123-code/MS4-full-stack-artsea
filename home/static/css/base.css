@@ -23,6 +23,10 @@ footer {
     background-color: #2e2e2e;
     color: white;
 }
+
+.header-container-page{
+    padding-top: 200px;
+}
 /* from Bulma */
 .icon {
     align-items: center;
@@ -166,7 +170,7 @@ footer {
         padding-top: 100px;
     }
     .header-container-page{
-        padding-top: 60px;
+        padding-top: 200px;
     }
 
     .custom-toast {
@@ -177,6 +181,28 @@ footer {
         height: 2px;
     }
 }
+
+/* on small screen */
+@media screen and (max-width: 768px)  {
+    #hero_image{
+        background: url('../media/homepage_head.jpeg') no-repeat fixed;
+        height: 300px;
+        width: 100%;
+    }
+    .header-container-page{
+        padding-top: 100px;
+    }   
+}
+
+@media screen and (min-width: 320px)  {
+    .navbar {
+        padding: 0 !important;
+    }
+    .header-container-page{
+        padding-top: 25px;
+    }  
+}
+
 /* bootstrap toasts */
 
 .message-container {
@@ -248,23 +274,3 @@ footer {
 	color: #17a2b8; /* text-info */
 }
 
-/* on small screen */
-@media screen and (max-width: 768px)  {
-    #hero_image{
-        background: url('../media/homepage_head.jpeg') no-repeat fixed;
-        height: 300px;
-        width: 100%;
-    }
-    .header-container-page{
-        padding-top: 100px;
-    }   
-}
-
-@media screen and (min-width: 320px)  {
-    .navbar {
-        padding: 0 !important;
-    }
-    .header-container-page{
-        padding-top: 25px;
-    }  
-}

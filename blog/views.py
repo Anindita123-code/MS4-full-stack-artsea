@@ -1,12 +1,22 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
 from .forms import BlogForm
+from .models import Blog
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 def blog_list(request): 
-    return render(request, 'blog/blog_list.html')
+    blogs = Blog.objects.all()
+    template = 'blog/blog_list.html'
+
+    context = {
+        'blog_list': blogs,
+    }
+    
+    return render(request, template, context)
 
 
+@login_required
 def add_blog(request):
     if request.method == 'POST':
         form_data = {

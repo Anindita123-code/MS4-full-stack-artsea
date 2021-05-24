@@ -2,35 +2,54 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container-form">
+    <div class="container header-container-page">
         <div class="row">
             <div class="col"></div>
         </div>
     </div>
 {% endblock %}
 
-
 {% block content %}
-<div class="overlay"></div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col text-left mt-3">
-            <br><br><br>
-            <h2 class="form-title">Blog list</h2>
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="logo-font-small mb-4 text-center">Active blog list</h2>
+            </div>
         </div>
-    </div>
-     <div class="row">
-        <div class="workshop-container col-10 offset-1">
-            <div class="row mt-1 mb-2">
 
-            </div>
-            <div class="row">
-           
+        <div class="row">
+            <div class="col-12 col-lg-12">
+                <div class="order-confirmation-wrapper p-2 border">
+                    <div class="row">
+                        <div class="col">
+                            <small class="text-muted">Published Blog Titles:</small>
+                        </div>
+                    </div>
+                     {% for item in blog_list.all %}
+                    <div class="row">
+                        <div class="col-12 col-md-4 text-md-right">
+                            <a class="small mb-0 text-black font-weight-bold" href="#">
+                                {{ item.blog_title }}
+                            </a>
+                        </div>
+                         <div class="col-md-2"></div>
+                        <div class="col-12 col-md-6 text-md-left">
+                            <p class="small mb-0 font-weight-bold">{{ item.blog_date }} </p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
+        <br<br><br>
+        <div class="row">
+			<div class="col-12 col-lg-12 text-center">
+                <a href="{% url 'workshops' %}" class="btn btn-black rounded-0 my-2">
+                        BACK TO WORKSHOPS
+                </a>
+			</div>
+		</div>
     </div>
-</div>
-<br><br><br>
-{% endblock %}
-{% block postloadjs %}
+    <br><br><br>
 {% endblock %}

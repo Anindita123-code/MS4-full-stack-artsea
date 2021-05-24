@@ -6,7 +6,7 @@ from .models import Blog, CommentOnBlog
 
 class BlogAdmin(admin.ModelAdmin):
     list_display = (
-        'user',
+        'blog_name',
         'blog_title',
         'blog_author',
         'blog_content',

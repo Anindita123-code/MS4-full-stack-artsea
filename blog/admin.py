@@ -18,7 +18,6 @@ class BlogAdmin(admin.ModelAdmin):
 class CommentOnBlogAdmin(admin.ModelAdmin):
     list_display = (
         'Blog',
-        'user',
         'date',
         'comments',
     )

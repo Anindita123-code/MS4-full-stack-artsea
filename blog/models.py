@@ -17,10 +17,9 @@ class CommentOnBlog(models.Model):
     Blog = models.ForeignKey(Blog, null=False, blank=False,
                              on_delete=models.CASCADE,
                              related_name='Blog_name')
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
-    comments = models.CharField(max_length=254, null=False, blank=False)
-
+    comments = models.TextField(null=False, blank=False)
+    
     def __str__(self):
         return self.comments
 

@@ -1,5 +1,5 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
-from .forms import BlogForm
+from .forms import BlogForm, CommentOnBlogForm
 from .models import Blog
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -18,13 +18,26 @@ def blog_list(request):
 
 def show_blog(request, blog_id):
     single_blog = get_object_or_404(Blog, pk=blog_id)
-
+   
+    form = CommentOnBlogForm(request.POST)
     template = 'blog/blog_detail.html'
-    
     context = {
-        'blog': single_blog
+        'blog': single_blog,
+        'form': form,
     }
     return render(request, template, context)
+
+
+# def add_comments(request, blog_id):
+#     form = CommentOnBlog
+   
+#     template = 'blog/blog_detail.html'
+   
+#     context = {
+#         'form': form,
+#     }
+
+#     return render(request, template, context)
 
 
 @login_required

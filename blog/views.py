@@ -12,7 +12,18 @@ def blog_list(request):
     context = {
         'blog_list': blogs,
     }
+
+    return render(request, template, context)
+
+
+def show_blog(request, blog_id):
+    single_blog = get_object_or_404(Blog, pk=blog_id)
+
+    template = 'blog/blog_detail.html'
     
+    context = {
+        'blog': single_blog
+    }
     return render(request, template, context)
 
 

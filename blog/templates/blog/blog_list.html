@@ -20,21 +20,29 @@
 
         <div class="row">
             <div class="col-12 col-lg-12">
-                <div class="order-confirmation-wrapper p-2 border">
+                <div class="p-2 border">
                     <div class="row">
                         <div class="col">
                             <small class="text-muted">Published Blog Titles:</small>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-8 text-left"><strong>Topic</strong></div>
+                        <div class="col-md-2 text-left"><strong>Author</strong></div>
+                        <div class="col-md-2 text-left"><strong>Date</strong></div>
+                    </div>
+                    <hr>
                      {% for item in blog_list.all %}
                     <div class="row">
-                        <div class="col-12 col-md-4 text-md-right">
-                            <a class="small mb-0 text-black font-weight-bold" href="#">
+                        <div class="col-md-8 text-md-center">
+                            <a class="small mb-0 text-primary font-weight-bold" href="#">
                                 {{ item.blog_title }}
                             </a>
                         </div>
-                         <div class="col-md-2"></div>
-                        <div class="col-12 col-md-6 text-md-left">
+                        <div class="col-md-2 text-md-left">
+                            <p class="small mb-0 font-weight-bold">{{ item.blog_author }}</p>
+                        </div>
+                        <div class="col-md-2 text-md-left">
                             <p class="small mb-0 font-weight-bold">{{ item.blog_date }} </p>
                         </div>
                     </div>

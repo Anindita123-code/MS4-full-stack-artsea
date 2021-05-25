@@ -53,7 +53,7 @@
                             <div class="card-body">
                                 {% if request.user.is_superuser %}
                                     <a href="{% url 'edit_workshop' workshop.id %}">Edit</a>
-                                    <a class="text_danger" href="{% url 'delete_workshop' workshop.id %}">Delete</a>
+                                    <a class="text-danger" href="{% url 'delete_workshop' workshop.id %}">Delete</a>
                                 {% endif %}
                             </div>
                         <!-- </div> -->

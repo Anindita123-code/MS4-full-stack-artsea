@@ -81,7 +81,7 @@ def edit_workshop(request, workshop_id):
             messages.success(request, 'Successfully updated workshop!')
             return redirect(reverse('workshop_details', args=[workshop.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update workshop. Please ensure the form is valid.')
     else:
         form = WorkshopForm(instance=workshop)
     

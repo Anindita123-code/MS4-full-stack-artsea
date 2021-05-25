@@ -50,32 +50,6 @@ def show_blog(request, blog_id):
     return render(request, template, context)
 
 
-
-
-# def add_comment(request, blog_id):
-#     if request.method == "POST":    
-       
-#         comment_form = CommentOnBlogForm(form_data)
-    
-#         if comment_form.is_valid():
-#             comment_form.save()
-#             messages.success(request, 'New Blog content Added Successfully !')
-#             return redirect(reverse('add_comment'))
-#         else:
-#             messages.error(request, 'Failed to add comment to the Blog post. Please ensure that the form is valid')
-#         form = comment_form
-#     else:
-#         form = CommentOnBlogForm
-   
-#     template = 'blog/blog_detail.html'
-   
-#     context = {
-#         'blog': blog_id,
-#         'form': form,
-#     }
-#     return render(request, template, context)
-
-
 @login_required
 def add_blog(request):
     if request.method == 'POST':
@@ -84,6 +58,8 @@ def add_blog(request):
                 'blog_title': request.POST['blog_title'],
                 'blog_author': request.POST['blog_author'],
                 'blog_content': request.POST['blog_content'],
+                'blog_content_para2': request.POST['blog_content_para2'],
+                'blog_content_para3': request.POST['blog_content_para3'],
             }
         blog_form = BlogForm(form_data)
     
@@ -105,4 +81,40 @@ def add_blog(request):
 
     return render(request, template, context)
 
+
+@login_required
+def edit_blog(request, blog_id):
+    blog = get_object_or_404(Blog, pk=blog_id)
+    if request.method == 'POST':
+        form = BlogForm(request.POST, instance=blog)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated Blog!')
+            return redirect(reverse('show_blog', args=(blog_id,)))
+        else:
+            messages.error(request, 'Failed to update Blog. Please ensure the form is valid.')
+    else:
+        form = BlogForm(instance=blog)
+    
+    messages.info(request, f'You are editing {blog.blog_title}')
+    template = 'blog/edit_blog.html'
+    
+    context = {
+        'form': form,
+        'blog': blog,
+    }
+    return render(request, template, context)
+
+
+@login_required
+def delete_blog(request, blog_id):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry! Only Administrator can do that')
+        return redirect(reverse('home'))
+        
+    blog = get_object_or_404(Blog, pk=blog_id)
+    blog.delete()
+    messages.success(request, 'Blog Deleted!')
+
+    return redirect(reverse('blog_list'))
     

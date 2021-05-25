@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Goblin+One&family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
 html {
     height: 100%;
@@ -144,6 +145,18 @@ footer {
     color: black !important;
 }
 
+/* Style for blog pages */
+.blog-title-font {
+    font-family: 'Roboto Slab', serif;
+    font-size: 25px;
+}
+.blog-content{
+    font-family: 'Roboto', serif;
+    font-size: 15px;
+    letter-spacing: normal+1;
+    padding: 35px;
+    margin-top: 15px;
+}
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */

@@ -29,8 +29,8 @@
             </div>
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="workshop-details-container mb-5 mt-md-5">
-                    <p class="mb-0 text-uppercase">{{ workshop.title }}</p>
-                    <p class="lead mb-0 text-left font-weight-bold">DKK {{ workshop.price }}</p>
+                    <p class="mb-0 text-uppercase font-weight-bold">{{ workshop.title }}</p>
+                    
                     {% if workshop.category %}
                     <p class="small mt-1 mb-0">
                         <a class="text-muted" href="{% url 'workshop' %}?category={{ workshop.category.name }}">
@@ -53,6 +53,7 @@
                         <!-- form for change in quantity of the item -->
                         <div class="form-row">
                             <div class="col-12">
+                                 <p class="lead mb-0 text-left">DKK {{ workshop.price }}</p>
                                 <p class="mt-3"><strong>Quantity:</strong></p>
                                 <div class="form-group w-50">
                                     <div class="input-group">
@@ -77,7 +78,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                           
                             <div class="col{% if s %}-12 mt-2{% endif %}">
                                 <a href="{% url 'workshops' %}" class="btn btn-outline-black rounded-0 mt-5">
                                     <span class="icon">

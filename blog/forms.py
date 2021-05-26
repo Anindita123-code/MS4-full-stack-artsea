@@ -42,7 +42,7 @@ class CommentOnBlogForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         placeholders = {
-            'comments': 'Post a comment on this blog',
+            'comments': 'Your comment',
             'username': 'Your name',
             'email': 'your email',
         }

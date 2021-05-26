@@ -25,7 +25,7 @@
                 <p class="mb-0 text-center text-blue"> <strong>Author : {{ blog.blog_author }}</strong></p>
             </div>
         </div>
-       
+        <hr>
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12 text-justify">
             
@@ -42,10 +42,12 @@
                         <a href="{% url 'delete_blog' blog.id %}" class="text-danger" href="">Delete</a>
                     </small>
                 {% endif %}
+                <hr>
                 <form class="form" action="{% url 'show_blog' blog.id %}" method="POST">
                    <!-- form for adding comments -->
                     <div class="form-row">
                         <div class="col-8 offset-2">
+                            <p class="text-muted">Post a Comment:</p>
                             {% csrf_token %}
                             {{ form | crispy }}
                             <input type="submit" class="btn btn-black rounded-0 text-uppercase" value="Add" id="comment_{{ blog.id }}">
@@ -58,10 +60,10 @@
                              {% for item in comments_on_blog.all %}
                              <div class="bg-white">
                                 <div class="row mb-2">
-                                    <div class="col-md-8 text-md-left">
-                                         <p class="small mb-2 font-weight-bold">Posted by : {{ item.name }}</p>
+                                    <div class="col-md-7 text-md-left">
+                                         <p class="small mb-2 font-weight-bold">Posted by : {{ item.username }}</p>
                                     </div>
-                                    <div class="col-md-4 text-md-right">
+                                    <div class="col-md-3 text-md-right">
                                         <p class="small mb-2 font-weight-bold">On : {{ item.date }}</p>
                                     </div>
                                 </div>

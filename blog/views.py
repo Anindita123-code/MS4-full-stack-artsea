@@ -21,6 +21,7 @@ def show_blog(request, blog_id):
     single_blog = get_object_or_404(Blog, pk=blog_id)
     blog_comments = CommentOnBlog.objects.all()
     comments_on_blog = blog_comments.filter(Blog_id__id__in=(blog_id,))
+    
     form = CommentOnBlogForm()
     template = 'blog/blog_detail.html'
     if request.method == "POST":
@@ -34,8 +35,8 @@ def show_blog(request, blog_id):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.Blog_id = blog_id
-            comment.username = request.POST.get('username')
-            comment.email = request.POST.get('email')
+            comment.username = request.POST['username']
+            comment.email = request.POST['email']
             comment.save()
             messages.success(request, 'New Blog content Added Successfully !')
             return redirect(reverse('show_blog', args=(blog_id,)))

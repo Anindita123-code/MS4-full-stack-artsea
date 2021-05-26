@@ -20,9 +20,13 @@
                         <a href="{{ workshop.image.url }}" target="_blank">
                             <img class="card-img-top img-fluid" src="{{ workshop.image.url }}" alt="{{ workshop.name }}">
                         </a>
-                        {% else %}
+                    {% elif workshop.image_url %}
+                        <a href="{{ workshop.image_url }}" target="_blank">
+                            <img class="card-img-top img-fluid" src="{{ workshop.image_url }}" alt="{{ workshop.name }}">
+                        </a>
+                    {% else %}
                         <a href="">
-                            <img class="card-img-top img-fluid" src="/media/No_Image.jpeg" alt="{{ workshop.name }}">
+                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}No_Image.jpeg" alt="{{ workshop.name }}">
                         </a>
                     {% endif %}
                 </div>
@@ -41,7 +45,7 @@
                     {% if request.user.is_superuser %}
                         <small class="ml-3">
                             <a href="{% url 'edit_workshop' workshop.id %}">Edit</a>
-                            <a class="text-danger" href="">Delete</a>
+                            <a class="text-danger" href="{% url 'delete_workshop' workshop.id %}">Delete</a>
                         </small>
                     {% endif %}
                     <p class="mt-3">About the workshop : <br>{{ workshop.description }}</p>

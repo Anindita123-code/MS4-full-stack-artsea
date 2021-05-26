@@ -1,6 +1,6 @@
 from django import forms
 from .models import Workshop, Category
-# from .widgets import CustomClearableFileInput
+from .widgets import CustomClearableFileInput
 
 
 class WorkshopForm(forms.ModelForm):
@@ -9,7 +9,8 @@ class WorkshopForm(forms.ModelForm):
         model = Workshop
         fields = '__all__'
 
-    # image = forms.ImageField(label='image', required=False, widget=CustomClearableFileInput)
+    image = forms.ImageField(
+        label='image', required=False, widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

@@ -33,9 +33,13 @@
                             <a href="{% url 'workshop_details' workshop.id %}">
                                 <img height="300" class="card-img-top " src="{{ workshop.image.url }}" alt="{{ workshop.name }}">
                             </a>
+                        {% elif workshop.image_url %}
+                            <a href="{% url 'workshop_details' workshop.id %}">
+                                <img height="300" class="card-img-top " src="{{ workshop.image_url }}" alt="{{ workshop.name }}">
+                            </a>
                         {% else %}
                             <a href="{% url 'workshop_details' workshop.id %}">
-                                <img height="300" class="card-img-top" src="/media/No_Image.jpeg" alt="{{ workshop.name }}">
+                                <img height="300" class="card-img-top" src="{{ MEDIA_URL }}No_Image.jpeg" alt="{{ workshop.name }}">
                             </a>
                         {% endif %}
                             <div class="card-body pb-0">

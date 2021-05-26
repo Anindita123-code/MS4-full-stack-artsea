@@ -10,7 +10,7 @@ header{
 }
 
 #hero_image{
-   background: url('../media/homepage_head.jpeg') no-repeat center center fixed; 
+   background: url('/media/homepage_head.jpeg') no-repeat center center fixed; 
     background-size: contain;
     /* height: calc(100vh - 164px); */
     height: 480px;

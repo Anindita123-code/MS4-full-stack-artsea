@@ -1,15 +1,16 @@
 ![Artsea - The workshop place](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/media/project_main.png)
 
 # Artsea - the workshop place 
-[live link of the website](http://heroku_link)
+[live link of the website](https://anindita-artsea.herokuapp.com/)
 
 ## Table of Contents
 
 
 ## Project Overview
 
-Artsea - is a project undertaken as part of Code Institute Diploma Curriculum. This is an ecommerce website which sells art workshops in Denmark
+Artsea - This is the 4th Milestone project undertaken as part of Code Institute Diploma Curriculum. This has been build in the Full Stack Framework using Django.
 
+Artsea intends to bring details of all kind of Visual Art related workshop information under one roof.
 This helps the user choose within the various workshops that are available in a given point in time, and make an online payment for enrolling for the same.
 The project implements stripe for payments and checkout and also has a Blog section which helps the users collaborate on a common topic thereby creating a community for art lovers
  
@@ -26,10 +27,11 @@ Our goal is to boost the creative community and make art truly available to ever
 
 The scope of Artsea is as follows:
 
-1. Users will be able to register and thereby login into the website in order to become a member
+1. Users will be able to register as a member, to have all their past purchase information under their logged in profile
 2. All users will be able to search and view the workshops which are divided in various categories in the site. 
 3. All users can choose to enrol by making an online purchase of workshop.
 4. All users can read the published blogs in the website and post a comment on the same.
+5. All buyers will receive a confirmation email, of their current purchase in the email id specified by them.
 
 * Here, the focus is implementing eCommerce, and maintaining a blog
 
@@ -37,7 +39,7 @@ The scope of Artsea is as follows:
 
 The website is structured so that the user can navigate easily and fulfill their goal of making a purchase of art workshop after finding an appropriate one
 * There is a top navbar, which is handy to navigate the breadth of the website.
-* There is a workshop listing page, which is also the search page that lists all the workshops that have been currently added by the superuser.
+* There is a workshop listing page that lists all the workshops that have been currently added by the superuser.
 * Each workshop displays more details in the workshop detail pages, from where the user is provided the functionality to add the item to their shopping background
 * The bag items can then be adjusted and routed for checkout and payment to block their snapshots
 * There is also a blog listing page, which lists all the active blogs in the the website
@@ -55,7 +57,7 @@ Following is a brief understanding of the Models that have been created in Djang
 * OrderlineItems - stores the details of items for each order, considering that each order number may have single or multiple items
 * Profiles - user profiles created for returning users
 * blogs - stores all the blog topics with associated writeup and images (if any)
-* Blog_reviews - stores all the blog reviews which are posted by users for each individual blog
+* BlogComments - stores and displays all the blog reviews/comments which are posted by users for each individual blog
 
 The Entity Relationship Diagram is as follows. 
 
@@ -74,86 +76,107 @@ The representation of the information of this system is treated differently in d
 
 ### User stories
 
-The project aims to address the following user stories:
+The user stories have been documented in the [Artsea User Stories Document](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/Design/User%20Stories/UserStories_artsea.xlsx)
 
-1. As a first time visitor I should be able to view the books in the website, by either Filtering by Category name and / or searching by a book name.
-2. I should be able to register an account if I donot already possess a login-id and password to use with "Views and Reviews"
-3. As a registered user, I should be able to add a review for existing books in the website. So that I do not have to upload duplicate books in for sharing my review.
-4. As a registered user, I should be able to add new books to the website and then write a review for it so that I have the freedom to add new books even if they are not there in the website. 
-5. As a registered user, I should be able to view all the books in my profile page and also have the privilege of reading and writing reviews for any of the books in the website.
-6. As a registered user, I should be able to delete and edit any book information of the books that has been added by me.
-7. As a registered user, I should be able to delete and edit any reviews that has been added by me. However, if one of my reviews are Featured in the home page, I will not be allowed to delete or modify this.
-8. As an Admin user, I should be able to mark a review as a featured review which will be displayed on the home page of the website and will be visible to any first time visitor of the site without having to perform a search
-9. As an Admin user, I should be able to Delete Reviews and Books that has been added by a Registered user of the website. So that I can remove any obnoxious comment written by any reviewer on a book.
-10. As a guest user, I should be able to search for a particular book by its name and book genre. However, to read or write a reviews on any book, I need to log in/Register into the website.
-11. As user of the website, I should be able to navigate easily through the website, and get appropriate alert messages, when I perform any important action. So that i have a great user experience
+**Viewing and Navigation**
+1	Student / Shopper	View a list of Workshops	Select the workshop that I want to purchase
+2	Student / Shopper	View Individual Workshop Details	Identify the fees, description, associated image, Person conducting, Venue and timings
+3	Student / Shopper	Easily view the total enrolment amount 	prioritize my planned workshops
+4	Student / Blogger / logged in user	View a list of Topics in the blog	Find out what are the currently active blogs in Artsea
+5	Student / Blogger / logged in user	View other users comments as well as mine	Read the comments of self and others given on a particular post
+**Registration and User Accounts**		
+6	Site User	Easily register for an account	Have a personal account and be able to view my profile
+7	Site User	Easily login or logout	Access my personal account information
+8	Site User	Easily recover my password in case I forget 	Recover access to my account
+9	Site User	have a personalized user profile	View and update my personal information and also view my order history
+**Filtering and Searching**
+10	Student / Shopper	Filter by the Medium or type of workshop	View my selected list of Workshops only
+11	Student / Shopper	Search by the name or description	View the list of Workshops that matches my search criteria
+12	Student / Shopper	View a list of Workshops that matches the filter or search criteria	Quickly decide that the Workshop I am looking for is available
+**Purchasing and checkout**			
+13	Student / Shopper	Add the selected workshop into my shopping bag	select the workshops that I want to purchase
+14	Student / Shopper	See the subtotal and the Grand total of the items, including delivery charges (if any) in the shopping bag	View the breakups of the amount that I have to pay if I go ahead with the order
+15	Student / Shopper	Allowing users to view items in their bag to be purchased	See my selection of items in the shopping bag
+16	Student / Shopper	Modify the quantity of items in my shopping bag	Make changes in my shopping bag in the last moment
+17	Student / Shopper	Delete any item from the shopping bag	Remove any items from the shopping bag if I found the correct match
+18	Student / Shopper	View the new grand total once the quantity in the shopping bag Is modified or deleted	Quickly decide and move ahead for paying the new price
+19	Student / Shopper	Checkout by providing a valid Credit card number	Make a purchase
+20	Student / Shopper	sufficiently notified if my card number is invalid	Modify my card number and provide a valid card details
+21	Student / Shopper	Get a successful purchase message once the purchase has been made	I can be sure that the purchase is successful
+22	Student / Shopper	See an empty shopping bag on successful purchase	see that there is nothing in my shopping bag as the payment has been successful
+23	Student / Shopper	View my order details 	get an order number which is valid and be sure that I have made a successful purchase
+24	Student / Shopper	Get an email for the order made	use the mail for a formal confirmation of the items that has been purchased
+**Blogs and User Comments**			
+25	superuser	Create a new blog post	Connect with people using the website to comment and collaborate
+26	site User	View the list of Blog Posts 	See all the blog topics at once
+27	site User	Select and read any of the blog posts	Read the blog post in full
+28	site User	Add a comment to the block post	Share my opinion
+29	site User	Read the comments made by other site user on the blog post	Learn about others opinion
+**Workshop Record Management**			
+30	superuser	Create a new workshop and add the Title, Category, Description, Hosted By, Date and time, place of workshop, Image Url and price	Add workshops to the database
+31	superuser	Notified of any invalid entries for creating a workshop. 	Make the necessary changes before commiting the records in the database
+32	superuser	Notified if the workshop has been created successfully	Be sure that they are saved in the database and will be available for users to enrol for the same
+33	superuser	Update an existing workshop data	Make any changes to the date and time or venue if required
+34	superuser	Delete a workshop 	remove any cancelled workshop
 
 ### Design Choices
-The overall feel of the website is for Book Readers to collaborate on a platform where they can share their opinion about a book and read others opinions too. I have hence chosen color combination that feels good to the eyes.
-
+The website structure is kept simple, I have not used too many colors, so as to balance out the colors of the workshops which are displayed.
+The hero-image has been selected keeping in mind that this is all about visual arts, and mostly dealing with bright stuffs.
+I have hence chosen color combination that gives a warm feeling and is easy to go with, where the textual content is well received.
 #### Fonts
 * For the most part of the website, I have used the font "Roboto" which gives a good reading experience. They are nicely spaced and make the site look more fuller.
-* For the Logo and the Nav bar, I have used "Cinzel" which I think fitted very well to put that highlight on the nav elements and the logout
-* For the confirmation or error message display, I have used the font "Source Code Pro" and this has helped differentiate them from the rest of the website.
-* For the feature section of the Home Page, I have used "Roboto Slab".
+* For the Logo is a combination of the font's 'Goblin One' and 'Caveat'. The subheadings of each page, I have used a cursive version of 'Goblin One' of small size, so that it gets more weightage than the rest of the site content. 
+* For the Nav bar, I have used "Roboto Slab" which I think fitted very well to put that highlight on the nav elements
+* For the Blog title, I have used "Roboto Slab" and the rest of the blog contents, I have used Roboto as well.
+**The fonts, used are all taken from Googlefonts**
 
 #### Icons
-* I have used icons in the buttons, for most of the cases. The icons have been taken from fontawesome. I have made a distinguish pattern with colors in the delete functionalities of Admin user and a normal user.
-    - The brown color buttons with Delete and Edit icons are indicative of the logged in user created entry which can be modified and deleted at their own will. However, a super user access has been given to "admin" user to with Red delete buttons to delete any of the entries, and he/she doesnot find relevant.
-* A star icon has been used to mark a Review as featured in the listing of the read reviews page and this cannot be edited and deleted by anyone, unless this is taken off the feature, and this is possible by Featuring any other review in its place.
+* I have used Icons for specifying the User authentication, Shopping bag, Search, the + and - for quantity selection, and the back buttons of the overall site.
+    - The icons has been taken from fontawesome
 
 #### Colors
-I have kept minimum colors for this website and play around with the same tone of colors as my Hero Image of the open book in the home page.
-   
-The top navbar and the footer has uses #D69B59 (a light caramel brown), Deep Orange for the category buttons in the home page (#bf360c) and shades of orange for Search (#fff3e0) and the Featured Review Sections on home page and Admin profile page (#ffe0b2).
-The text colors differ in different pages owing to the message they convey. 
-The Flash messages background color is Lime (#cddc39). 
+I have kept minimum colors for this website and kept a balance with white and brighter tones, as this deals with colors and visual art. 
+Mostly a combination of blue, white and black
 
-Most of the color references can be found in the [Materializecss color page](https://materializecss.com/color.html)
+The [Materializecss color page](https://materializecss.com/color.html) has been quite handy for making the selection of colors.
 
 #### Styling
 
-I have used [Materializecss Components](https://materializecss.com/cards.html) for styling the Pages that shows a list of books. For this I have used Image cards (for listing books) and Basic cards (for review in Admin profile page)
-The colors and the placement of the contents vary and has been tweaked to fit with the requirement and the selected color pallete of the website.
+I have used [Bootstrap Components](https://getbootstrap.com/docs/3.4/css/) for styling almost all the components of the website.
+Some of the bootstrap classes have been modified to fulfill the specific needs of the website.
 
-## Features
+## Project Features
 
-Views and Reviews is a book review website and provides its user with the following features. The list of features which have been currently implemented are listed under "Existing Features" and the scope of further enhancements are listed under "Features left to Implement"
- 
 ### Existing Features
-* Create a user account (Register) 
-    - Any user can create his/her own account to explore further into the site.
-* Existing users can login 
-    - A registered user can login using his userid and password and is routed to their profile page, which has the listing of all the books in the site. 
-* Existing user can change their password, if they have forgotton the same
-    - A registered user, can change their password, if they still remember their login-id and the email id that has been used while creating their account. The new password can then be used to log into the website.
-* Add a book of your choice 
-    - A registered user can add a book of their choice, if this is not already available in the listed category of books. 
-* Modify and Delete a book 
-    - A registered user can modify and delete information of the book that has been added by them only. Any other book which has not been added by them cannot be modified or deleted by them.
-* Add a review 
-    - A registered user can add review for any of the books in the site. This new review will be displayed together with all the other reviews for the chosen book
-* Edit and Delete review 
-    - A registered user can edit and delete any of the reviews that have been posted by them on the books of the website. However, if any of review is Featured in the Homepage currently, they cannot be modified or deleted until they are taken out of Feature.
-* Admin user features 
-    - A user who is an admin can log into the website using the userid "admin" and password "admin123". This user will be routed to a different profile page.
-* Marking one review as Featured Review by Admin 
-    - The admin user will be able to search for a review by review date and bookname, and Publish any one of the review as Featured review on home page Featured Review Section. 
-    - At any one time any one Review can be featured in the home page.
-* Delete any review by Admin 
-    - The admin user will hold the priviledge of deleting any review given by any other user in the website. However, if the review is currently published in the homepage, this feature is disabled
-* Search from Home page 
-    - Any user (Registered, unregistered or Admin) will be able to search for books using the search section in the website. The homepage will show up the list of categories below the top nav bar which will allow any user to filter books by categories.
-    - Search Sections can be found in the listing pages and this can be used to narrow down the search by searching for categories and books together.
-* Logging out - Any logged in user will be able to log out of the website using the logout functionality.
+**FEATURES IMPLEMENTED**
+*Elements Across the wewbsite*
+Bootstrap Grid system have been used to structure pages and make them responsive for various viewports.
+Bootstrap NavBar navbar to allow easy navigation throughout the web app. Able to reach all pages of the app from the NavBar. For mobile and smaller devices the navbar is found in the hamburger menu.
+Bootstrap NavBar contains site title, which acts as a home button, dropdowns for accessing account actions, link to shopping basket and filters to help navigate the site.
+Bootstrap Footer used with social links and email.
+
+Favicon for the title tab in the browser.
+Hover used on all buttons and web/email addresses.
+Bootstrap Toasts used for all flashed messages after completion of an action.
+Search bar at the top of the screen that is linked to keyword searches to display workshops with matching words in the Title and Description fields.
+
+*Home Page Elements*
+A hero Image on top in-tune with the theme of the project
+A short writeup about the objective of the website and a link which takes the user to the workshop page
+
+*Login Page Elements*
+User login form allowing input from the user for their username and password with "Sign In" submit button which queries the Database to check the validity of the user.
+If the user is valid, a toast message is displayed and the user is redirected to the Workshops page.
+If a matching user is not found, the user cannot proceed further, and an error message is generated
+Links are displayed to allow the user to register or to reset their password.
+
+*Registration Page Elements*
+Registration form expecting the following input from the user: 
+- email address, confirm email address, username, password, confirm password.
+"Sign Up" submit button sends info to DB and shows a verification page prompting the user to confirm that they want to sign up.
+
 
 ### Features Left to Implement
-As the number of users grow, There would be additional functionalities that I would look forward to implement.
-- User Management (edit and delete users)
-- Create new categories
-- As the number of Books in the website increases, I would like to implement Pagination for search results and other book and review listing pages
-- I would like to have a review and Ratings for the books as part of the reviews which will help a user of the site to gain more insight about the book and its contents. 
-- Refine the Change password functionality with autogenerated email link for verification of the user.
 
 ## Technologies Used
 
@@ -164,8 +187,7 @@ As the number of users grow, There would be additional functionalities that I wo
 - [Jinja Templating language](https://jinja.palletsprojects.com/en/2.11.x/) have been used in conjuction with python for the working of the website
 
 ### Database
-- [MongoDB Atlas](https://www.mongodb.com/) have been used as the primary database for storing and retrieving the information in the website
-
+- [SQLlite (in Development)]() and [Postgres (at deployment)]() Although Sqllite has been used as the backend databse during development, the 
 ### Libraries and Frameworks
 - [Font Awesome](https://fontawesome.com/) - have been used for the button icons that are used in the website
 - [Materialize](https://materializecss.com/) - the various components of materialize have been used to draw the webpage structures and form elements
@@ -179,169 +201,6 @@ As the number of users grow, There would be additional functionalities that I wo
 - [Heroku](https://www.heroku.com/) have been used to host the website
 
 ## Testing
-As a user selects [Views and Reviews](https://views-and-reviews.herokuapp.com/) he would be directed to the home page of the website.
-Functional Testing has been done Manually, Following are the steps and the expected outcomes of each section of the website.
-
-### Home Page Testing
-
-The following tests have been conducted for the home page:
-  
-1. The Nav bar links direct the user to the Register, Login and the Search Pages. - All links work and is appropriately redirected
-2. I click any of the category buttons below the navbar - This gets me to the book list page, with the listing of the books of the selected category and shows appropriate message
-3. There is only one featured review. I can read the Featured Review in Full.
-4. I click on the "Read More" link in the featured review section and I am redirected to the Review listing page for all reviews given for that book. I can read and write reviews if I am already logged in, else I am appropriately redirected.
-5. I use the search panel below to search for any book. I select a category and give the name of a book. The book is displayed with any part or whole of matching names in the Book list page. This is a case sensitive search.
-6. I click on any of the social links below and I am routed to the respective pages which open up in a separate browser window.
-7. I click on the Logo "Views and Reviews" on the upper left hand and I am redirected to the home page from any of the pages of the site
-
-### User Authentication
-
-User authentication involves the following functionalities which have been tested as follows:
-
-1. New User Registration
-    * I skip entering username and password in the screen. Message for required fields for Username and Password pops up.
-    * I enter a username less than 5 characters and try to register after providing the mandatory fields. I am not allowed to submit as the username doesnot comply with the set pattern.
-    * I enter a password less than 5 characters and try to register after providing all the other mandatory fields. I am not allowed to submit as the username doesnot comply with the set pattern.
-    * I enter a username and password combination that is already existing in the Database while registering. I am not allowed to create username and a message is displayed "Username / Password already exists"
-    * I add valid inputs for username and password which is not a duplicate of any existing username and also fulfills the pattern criteria. I am allowed to Register and "Registration Successful" message is displayed
-
-2. Existing User Login
-    * I skip entering the username and/or password in the screen. Mandatory field message is displayed on trying to login.
-    * I try to login with a username less than 5 characters. I get a pattern mismatch message from my screen's field.
-    * I try to login with a username that is not existing in the database. I get a message "Invalid Username / Password!"
-    * I try to login with a username / password combination that is not existing in the database. I get a message "Invalid Username / Password!"
-    * I try to login with username / password combination existing in the database. I get a message "Login Successful" and i am transferred to my profile page.
-
-3. Forgot Password for Existing User
-    * In the Top Nav Bar as a logged in User, I can see the Change Password option, I click this and I am routed to the Reset Password Page. 
-        In the login screen below the login button, I use the Generate new Password link. I am routed to the Reset Password screen as well. 
-    * I add the username less than 5 characters and try to submit. A mandatory pattern matching error pops up.
-    * I add an invalid email id and try to submit. my input is underlined in red indicating that something is wrong.
-    * I add the email id which is valid and this has to be the one that I had used during registration, this shows a green underline and i can proceed
-    * I add a invalid username and /or emailid and add passwords which are mismatching. I get an error message "invalid User"
-    * I add a valid username and wrong emailid and add passwords which are matching. I get an error message "invalid User"
-    * I add a valid username and emailid and mismatching passwords. I get an error message saying "Password doesn't match, please try again"
-    * I add a valid username and emailid which i had provided during user registration and two matching passwords. I get a message "New Password generated for user" 
-    * I click on the link below the button . On selecting Login with new Password. I am redirected to the login page.
-
-4. Logout
-    * I have not logged in or registered yet and I am trying to logout. The logout option is not displayed before any user logs in.
-    * When I am logged in and I want to logout, I click the logout menu in the navbar. I get a message "Logged out Successfully!" and I am directed back to the home page
-
-### Search the site
-
-Site Search can be invoked from all the pages, The link for this can be seen in the Nav bar on the top right corner. The listing page for book also has the option for searching for books
-* I click on "Search Books" in the Navbar, The search book page is displayed.
-* I click on search button without any value, I get a book list of all the books that are currently stored in the Database. The total number of records fetched is displayed on the top using a flash message.
-* I select a category and then click on search button, In case there are no matching records for this category a suitable flash message is displayed on top otherwise, the number of matching records for the chosen category is displayed in the booklist page with a suitable message
-* I don't make a category selection and add a book name for searching, The matching book names are displayed.  with suitable message for number of books fetched.
-* I select a category and provide a name for a book, If no matching records are found, with the bookname in the chosen category, suitable message is displayed, else the matching books are displayed in the book list page.
-
-### Registered User Login
-
-#### User Profile Page
-* I login successfully as a valid user, I am routed to the profile page.
-    - I can see a welcome message and the last login date and time
-    - I can see a short description telling me what I can do here.
-    - I can see the list of books that are available in the website
-    - I can see a cover picture of each book with the book_name and a "Check Reviews.." link, on occasion when the cover picture is not displayed, a placeholder text for the Book Image is displayed.
-    - I can click on the three vertical dots at the end of the book name and the card shows details of the book (short description, Genre / book category & author name)
-    - I can click on the upper left hand cross sign and the card refreshes to show me the book cover and book name as earlier.
-    - I can see the Delete and the Edit button for the books that have been added by me.
-    - I cannot see Delete or Edit buttons for the books that are not added by me.
-
-#### Add a Book
-* I click on the Add Book link in the navbar, I am routed to the Add Book Page.
-* I click on the Categories, I can see a list of all the categories that are there in the website
-* I select a category, I can select any one that I wish to. 
-* I try to add a book with only category name and no other data, The mandatory marked (*) fields show up in red indicating that those needs to be filled
-* I add a book name of 3 characters long and try to submit, It displays an error condition with a red underline
-* I add a book name of 5 characters at and try to submit with book name and category, The book name is green now but the Author field shows a red underline indicating it is a mandatory field and cannot be left blank
-* I add some characters to the author field, if it is one character the red line stays on, minimum of 2 characters gets a green underline and i am good to go
-* I add more characters to the book name (test for longer text), I am able to put upto 50 characters as set in the program
-* I add more than one author separated by comma, I am allowed to until 120 characters as indicated in the program
-* I skip the URL and description for now and submit the new entry, the new book is created and I get a message for the same, I am routed to the book list page where I can see the book with a blank image.
-OR I add the image Url by using a image address from any of the internet locations, the new book is created and I get a message for the same, I am routed to the book list page where I can see the book with the selected image.
-
-#### Edit and Delete Books Added by the logged in user
-* I scroll down to the newly created book, which shows a blank Image, and want to put an image now, I can see and edit and delete button with the book card.
-* I click on the edit button of the newly created book, I am routed to the Edit book page with the value of the category, book and authorname I have just entered.
-* I make some changes in the book name and author name, and add an image link with https://<somelink with image> I add some description and save. I get a message saying this has been saved successfully and I am routed to the book list page.
-* I scroll down to the book I just added and I can see the picture it fetches from the new link. 
-* I click on the picture and the card refreshes with the details for author and description I had just added.
-* I click on the cross on the upper left corner of the card refresh and I am routed back to my original book image again
-* I click on the brown delete button at the bottom of the book card which I have added, a modal window pops up, saying this record will be permanently deleted, continue?
-* I press "no" in the delete modal window, and the record is shown as it was earlier in the book list page
-* I press "yes" in the delete modal window and the record is deleted from the database and is no longer available in the Book list page.
-
-#### Add and Read Reviews of Books
-* In the book list page or my profile page, I click on any of the "Check Review.." link on any of the book cards, I am routed to the Book Reviews Page.
-* The book review page, has a picture of the book on the left, and the listing of all the reviews that has been given so far, or none if no one has review it yet.
-* I write a short review, and press add review. My review is added in the Book review page and a message displayed as "review added successfully".
-
-#### Edit and Delete Reviews Added by the logged in user
-* I want to edit the review that I had given, I click on the brown edit button, i am routed to the edit review page.
-* I add more text and make some changes to the existing text in the textarea, and then save this. I get a message "Review added Succesfully" and I am routed to the Book Review Page
-* My edited review with the new changes are visible in the Book Review Page. I can see the brown buttons of edit and delete with my reviews only, so I can further edit or delete a review that I had posted and not others.
-* I want to delete any of my reviews, I select the brown delete button for the review I want to delete, a Modal Delete window pops up for confirmation "This record will be deleted, do you wish to continue?" 
-* I select "no" and nothing happens, I select "yes" and my review is removed from the list of reviews for the book.
-
-### Not A Registered User
-* As a user who has not logged into the site, I can go and search the books by using the search functionality. The book list is displayed.
-* I select "check reviews.." of any chosen book, I am shown a message "New user? Register here, Registered User? Login here to read and write reviews"
-
-### Admin User Login
-
-#### Admin Profile Page
-* I login successfully as an Admin user, I am routed to the Admins profile page.
-    - I can see a welcome message and the last login date and time 
-    - I can see the Review that is currently in Feature and displayed on the home page
-    - I can search Reviews by either book name, or review date or by both and a list of filtered reviews are displayed
-    - I search by not providing values for either book name or review date, i get a message saying "Please filter by Book Name OR Review Date to proceed"
-    - I do a search of book name and/or review date, all matching reviews are displayed in the form of cards. I can get details of Book Name, Author, Review and Reviewer name.
-    - I mark a review with "On" in the featured section of the card and select save. I can see that review becomes the featured review and all other reviews no longer marked as featured
-    - I go to the home page using the navbar for seeing if the featured review is in sync. Bingo! the new review that is marked as featured is displayed in the home page too.
-
-#### Add, Edit and Delete Books
-* As an Admin user, I can add a new book. I click on the Add books link in the navbar and I am routed to Add New Book Page
-    - I select the book categories dropdown, I can see a list of all the categories that are there in the website
-    - I select a category, I can select any one that I wish to. 
-    - I try to add a book with only category name and no other data, The mandatory marked (*) fields show up in red indicating that those needs to be filled
-    - I add a book name of 3 characters long and try to submit, It displays an error condition with a red underline under the book name
-    - I add a book name of 5 characters at and try to submit with book name and category, The book name is green now but the Author field shows a red underline indicating it is a mandatory field and cannot be left blank
-    - I add some characters to the author field, if it is one character the red line stays on, minimum of 2 characters gets a green underline and i am good to go
-    - I add more characters to the book name (test for longer text), I am able to put upto 50 characters as set in the program
-    - I add more than one author separated by comma, I am allowed to until 120 characters as indicated in the program
-    - I skip the URL and description for now and submit the new entry, the new book is created and I get a message for the same, I am routed to the book list page where I can see the book.
-
-* As an Admin user, I go to the Display Book option in the navbar, a Book List of all the books are displayed.
-    - The books that have been added by the Admin user, will carry brown buttons of Edit and Delete icon buttons in the book card. This means the Admin, like any normal user can Edit and Delete the books he/she has added to the website
-    - I can see all the book cards have a red Delete button which is a superuser access to be able to delete any selected book from the website.
-    - I click on any one of the red Delete Icon button displayed with the book cards. a modal window with Delete Record message "This Book has been added by [logged in User]. Selecting Yes, will remove this record permanently. Do you wish to continue?" 
-        -  On selecting Yes, the book (although added by a different user) can be removed by the Admin user and the remaining book card orients themselves across the webpage automatically
-        -  On selecting No, no book is removed, the modal box closes and the Admin user is routed to the Display book page 
-    - I click on a brown Edit Icon Button, the Edit book page opens with the existing values for each field, which can be modified.
-    - I make the required changes in the Edit Books page, and Save Changes. I get a message "Book Updated Successfully"
-    - I click on the brown delete Icon button on the book card that displays, a modal window pops up alerting that the record will be deleted permanently, Do you wish to continue? 
-        -  On selecting Yes, the book is removed and the remaining book card orients themselves across the webpage automatically
-        -  On selecting No, no book is removed, the modal box closes and I am routed to the Display book page 
-    
-### Delete Reviews
-* As an Admin user, I click on the Display Books on the navbar. I am taken to the Book List page which shows the books and a "Check Review.." link
-    - I click on the "Check Review.." link on any of the selected book. I am routed to the Book Review Page. 
-    - I need to login as a normal user in order to post a review. I am given a suitable message and link to the login page, for adding reviews.
-    - I can see red delete icon buttons with all the displayed reviews. this can be used to delete a specific review, in case admin finds this review to be unsuitable.
-        -  On selecting Yes, the book (although added by a different user) can be removed by the Admin user and the remaining book card orients themselves across the webpage automatically
-        -  On selecting No, no book is removed, the modal box closes and the Admin user is routed to the Display book page 
-    - I can see a featured review marked with a star icon, When a review is published in the Home Page as featured review, the review cannot be deleted or modified. All the delete button for the featured review is disabled.
-
-### Browser testing on Computer, Laptop, iPad and mobile devices
-The website has been extensively tested in Chrome and Safari web browsers, in iPad and iPhone and adjusts according to the width of the screen
-
-### Known Issues.
-1. The sitewide search of bookname is case sensitive and the case of the bookname (in full or part) has to match to how it was entered.
-2. The admin user cannot post a review as he is logged in as "admin", this has been used as a rule to make sure that the reviews are added by a real users of the website.
-3. A logged in user can only read and post a review, this has been maintained to encourage users to create an account with "Views and Reviews"
 
 ### Validation Checks
 

@@ -12,7 +12,6 @@ header{
 #hero_image{
    background: url('/media/homepage_head.jpeg') no-repeat center center fixed; 
     background-size: contain;
-    /* height: calc(100vh - 164px); */
     height: 480px;
     width: 100%;
 }
@@ -51,8 +50,7 @@ footer {
 }
 
 .nav-text{
-    /* font-family: 'Cormorant Garamond', serif; */
-    font-family: 'Roboto';
+    font-family: 'Roboto Slab';
     font-size: 20px;
 }
 
@@ -228,7 +226,7 @@ footer {
 /* on small screen */
 @media screen and (max-width: 768px)  {
     #hero_image{
-        background: url('../media/homepage_head.jpeg') no-repeat fixed;
+        background: url('/media/homepage_head.jpeg') no-repeat fixed;
         height: 300px;
         width: 100%;
     }

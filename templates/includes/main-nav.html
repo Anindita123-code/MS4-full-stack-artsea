@@ -18,13 +18,10 @@
                 <a href="{% url 'workshops' %}?category=sketching" class="dropdown-item ">Sketching</a>
             </div>
         </li>
-        <li class="nav-item dropdown">
-            <a class="nav-text font-weight-bold nav-link text-black mr-5" href="#" id="blog-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <strong>Blog<strong>
+        <li class="nav-item">
+            <a class="nav-text font-weight-bold nav-link text-black mr-5" href="{% url 'blog_list' %}" id="blog-link" >
+                <strong>Blogs<strong>
             </a>  
-            <div class="dropdown-menu border-0" aria-labelledby="blog-link">
-                <a href="{% url 'blog_list' %}" class="dropdown-item">Blog List</a>
-            </div> 
         </li>
     </ul>
 </div>

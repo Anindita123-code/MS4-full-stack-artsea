@@ -29,12 +29,12 @@
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12 text-justify">
             
-                <p class="blog-content mb-0 text-left font-weight-bold">{{ blog.blog_content }}</p>
+                <p class="blog-content form-row text-left font-weight-bold">{{ blog.blog_content }}</p>
                 {% if blog.blog_content_para2 %}
-                    <p class="blog-content mb-0 text-left font-weight-bold">{{ blog.blog_content_para2 }}</p>
+                    <p class="blog-content form-row text-left font-weight-bold">{{ blog.blog_content_para2 }}</p>
                 {% endif %}
                 {% if blog.blog_content_para3 %}
-                    <p class="blog-content mb-0 text-left font-weight-bold">{{ blog.blog_content_para3 }}</p>
+                    <p class="blog-content form-row text-left font-weight-bold">{{ blog.blog_content_para3 }}</p>
                 {% endif %}
                 {% if request.user.is_superuser %}
                     <small class="ml-3">
@@ -43,46 +43,45 @@
                     </small>
                 {% endif %}
                 <hr>
-                <form class="form" action="{% url 'show_blog' blog.id %}" method="POST">
+                <form class="form mb-4" action="{% url 'show_blog' blog.id %}" method="POST">
                    <!-- form for adding comments -->
                     <div class="form-row">
                         <div class="col-8 offset-2">
-                            <p class="text-muted">Post a Comment:</p>
+                            <p class="text-muted"></p>
                             {% csrf_token %}
                             {{ form | crispy }}
                             <input type="submit" class="btn btn-black rounded-0 text-uppercase" value="Add" id="comment_{{ blog.id }}">
+                            <input type="button" class="btn btn-outline-black rounded-0 text-uppercase" id="btn-show" value="Read other's review">
                         </div>
                     </div>
                     <br>
-                    <div class="row">
-                        <div class="col-8 p-5 border offset-2 bg-light">
-                             User's Views : <hr>
+                    <div class="row" >
+                        <div class="col-8 p-4 border offset-2 bg-light" id="user-comments" onclick="show-hide-div()">
+                             User Comments : <hr>
                              {% for item in comments_on_blog.all %}
-                             <div class="bg-white">
-                                <div class="row mb-2">
-                                    <div class="col-md-7 text-md-left">
-                                         <p class="small mb-2 font-weight-bold">Posted by : {{ item.username }}</p>
+                             <div class="bg-white mr-3 mw-100">
+                                <div class="row mb-2 m-1">
+                                    <div class="col-md-6 text-md-left">
+                                         <p class="small mb-2 font-weight-bold text-muted">Posted by : {{ item.username }}</p>
                                     </div>
-                                    <div class="col-md-3 text-md-right">
-                                        <p class="small mb-2 font-weight-bold">On : {{ item.date }}</p>
+                                    <div class="col-md-6 text-md-right">
+                                        <p class="small mb-2 font-weight-bold text-muted">On : {{ item.date }}</p>
                                     </div>
                                 </div>
-                                <div class="row mb-2">
+                                <div class="row mb-2 m-1">
                                     <div class="col-md-12 text-md-left">
-                                        <p class="small mb-2 font-weight-bold text-muted">Comments :</p>
+                                       Comments :
                                     </div>
                                 </div>
                                 <div class="row mb-2">
-                                    <div class="col-md-12 text-md-center">
-                                         <p class="small mb-2 font-weight-bold">{{ item.comments }}</p>
-                                    </div>
-                                    
+                                    <div class="col-md-12 text-md-center mb-2">
+                                         {{ item.comments }}
+                                    </div>          
                                 </div>
                             </div>
                             {% endfor %}
                         </div>
                     </div>
-                      
                         <div class="col{% if s %}-12 mt-2{% endif %}">
                             <a href="{% url 'blog_list' %}" class="btn btn-outline-black rounded-0 mt-5">
                                 <span class="icon">
@@ -98,35 +97,24 @@
         </div>
     </div>
     <br><br><br>
+    <button onclick="myFunction()">Click Me</button>
+
+        <div id="myDIV">
+        This is my DIV element.
+        </div>
 {% endblock %}
 {% block postloadjs %}
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        $(':input[type="submit"]').prop('disabled', true);
-        $('input[type="text"]').keyup(function() {
-            if($(this).val() != '') {
-                $(':input[type="submit"]').prop('disabled', false);
-            }else
-                $(':input[type="submit"]').prop('disabled', true);
-        });
-    });
-
-    // // Disable +/- buttons outside 1-20 range
-    // function handleEnableDisable(itemId) {
-    //     var currentValue = $(`#comments`).val();
-    //     if (currentValue == "") {
-    //         $(`#comment_${itemId}`).prop('disabled', true);
-    //     }else{
-    //         $(`#comment_${itemId}`).prop('disabled', false);
-    //     }
-    // }
-
-    // // Check enable/disable every time the input is changed
-    // $(`#comment`).change(function() {
-    //     var itemId = $(this).data('item_id');
-    //     handleEnableDisable(itemId);
-    // });
-
+document.getElementById['user-comments'].display = 'none';
+function show-hide-div() {
+  var x = document.getElementById("user-comments");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
 </script>
+
 {% endblock %}

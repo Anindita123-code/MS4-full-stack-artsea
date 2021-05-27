@@ -29,7 +29,6 @@ class BlogForm(forms.ModelForm):
             self.fields[field].widget.attrs['class'] = 'border-black rounded-0'
 
           
-
 class CommentOnBlogForm(forms.ModelForm):
     class Meta:
         model = CommentOnBlog
@@ -38,7 +37,7 @@ class CommentOnBlogForm(forms.ModelForm):
                     'username',
                     'email',
                 )
-
+    
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         placeholders = {
@@ -50,5 +49,9 @@ class CommentOnBlogForm(forms.ModelForm):
         for field in self.fields:
             self.fields[field].widget.attrs['class'] = 'border-black rounded-0'
             placeholder = placeholders[field]
+            self.fields['comments'].widget.attrs['rows'] = 4
+            self.fields['comments'].widget.attrs['cols'] = 15
             self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields['comments'].widget.attrs['required'] = True
             self.fields[field].label = False
+            self.fields['comments'].label = "Post a Comment below *"

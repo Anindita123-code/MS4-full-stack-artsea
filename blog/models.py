@@ -19,7 +19,7 @@ class CommentOnBlog(models.Model):
                              on_delete=models.CASCADE)
     username = models.CharField(max_length=254, null=True, blank=True)
     email = models.CharField(max_length=254, null=True, blank=True)
-    comments = models.CharField(max_length=254, null=True, blank=True)
+    comments = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):

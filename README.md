@@ -78,52 +78,58 @@ The representation of the information of this system is treated differently in d
 
 The user stories have been documented in the [Artsea User Stories Document](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/Design/User%20Stories/UserStories_artsea.xlsx)
 
-**Viewing and Navigation**
-1	Student / Shopper	View a list of Workshops	Select the workshop that I want to purchase
-2	Student / Shopper	View Individual Workshop Details	Identify the fees, description, associated image, Person conducting, Venue and timings
-3	Student / Shopper	Easily view the total enrolment amount 	prioritize my planned workshops
-4	Student / Blogger / logged in user	View a list of Topics in the blog	Find out what are the currently active blogs in Artsea
-5	Student / Blogger / logged in user	View other users comments as well as mine	Read the comments of self and others given on a particular post
-**Registration and User Accounts**		
-6	Site User	Easily register for an account	Have a personal account and be able to view my profile
-7	Site User	Easily login or logout	Access my personal account information
-8	Site User	Easily recover my password in case I forget 	Recover access to my account
-9	Site User	have a personalized user profile	View and update my personal information and also view my order history
-**Filtering and Searching**
-10	Student / Shopper	Filter by the Medium or type of workshop	View my selected list of Workshops only
-11	Student / Shopper	Search by the name or description	View the list of Workshops that matches my search criteria
-12	Student / Shopper	View a list of Workshops that matches the filter or search criteria	Quickly decide that the Workshop I am looking for is available
-**Purchasing and checkout**			
-13	Student / Shopper	Add the selected workshop into my shopping bag	select the workshops that I want to purchase
-14	Student / Shopper	See the subtotal and the Grand total of the items, including delivery charges (if any) in the shopping bag	View the breakups of the amount that I have to pay if I go ahead with the order
-15	Student / Shopper	Allowing users to view items in their bag to be purchased	See my selection of items in the shopping bag
-16	Student / Shopper	Modify the quantity of items in my shopping bag	Make changes in my shopping bag in the last moment
-17	Student / Shopper	Delete any item from the shopping bag	Remove any items from the shopping bag if I found the correct match
-18	Student / Shopper	View the new grand total once the quantity in the shopping bag Is modified or deleted	Quickly decide and move ahead for paying the new price
-19	Student / Shopper	Checkout by providing a valid Credit card number	Make a purchase
-20	Student / Shopper	sufficiently notified if my card number is invalid	Modify my card number and provide a valid card details
-21	Student / Shopper	Get a successful purchase message once the purchase has been made	I can be sure that the purchase is successful
-22	Student / Shopper	See an empty shopping bag on successful purchase	see that there is nothing in my shopping bag as the payment has been successful
-23	Student / Shopper	View my order details 	get an order number which is valid and be sure that I have made a successful purchase
-24	Student / Shopper	Get an email for the order made	use the mail for a formal confirmation of the items that has been purchased
-**Blogs and User Comments**			
-25	superuser	Create a new blog post	Connect with people using the website to comment and collaborate
-26	site User	View the list of Blog Posts 	See all the blog topics at once
-27	site User	Select and read any of the blog posts	Read the blog post in full
-28	site User	Add a comment to the block post	Share my opinion
-29	site User	Read the comments made by other site user on the blog post	Learn about others opinion
-**Workshop Record Management**			
-30	superuser	Create a new workshop and add the Title, Category, Description, Hosted By, Date and time, place of workshop, Image Url and price	Add workshops to the database
-31	superuser	Notified of any invalid entries for creating a workshop. 	Make the necessary changes before commiting the records in the database
-32	superuser	Notified if the workshop has been created successfully	Be sure that they are saved in the database and will be available for users to enrol for the same
-33	superuser	Update an existing workshop data	Make any changes to the date and time or venue if required
-34	superuser	Delete a workshop 	remove any cancelled workshop
+| User Story | As A/An User      | I want to be able to                                                                                                  | So that I can                                                                                       |
+|------------|-------------------|-----------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+|            |                   |                                                                                                                       |                                                                                                     |
+| 1          | Student / Shopper | View a list of Workshops                                                                                              | Select the workshop that I want to purchase                                                         |
+| 2          | Student / Shopper | View Individual Workshop Details                                                                                      | Identify the fees, description, associated image, Person   conducting, Venue and timings            |
+| 3          | Student / Shopper | Easily view the total enrolment   amount                                                                              | prioritize my planned workshops                                                                     |
+| 4          | Any user          | View a list of Topics in the   blog                                                                                   | Find out what are the currently active blogs in Artsea                                              |
+| 5          | Any user          | View other users comments as   well as mine                                                                           | Read the comments of self and others given on a particular   post                                   |
+|            |                   |                                                                                                                       |                                                                                                     |
+| 6          | Site User         | Easily register for an account                                                                                        | Have a personal account and be able to view my profile                                              |
+| 7          | Site User         | Easily login or logout                                                                                                | Access my personal account information                                                              |
+| 8          | Site User         | Easily recover my password in   case I forget                                                                         | Recover access to my account                                                                        |
+| 9          | Site User         | have a personalized user profile                                                                                      | View and update my personal information and also view my order   history                            |
+|            |                   |                                                                                                                       |                                                                                                     |
+| 10         | Student / Shopper | Filter by the Medium or type of   workshop                                                                            | View my selected list of Workshops only                                                             |
+| 11         | Student / Shopper | Search by the name or   description                                                                                   | View the list of Workshops that matches my search criteria                                          |
+| 12         | Student / Shopper | View a list of Workshops that matches the   or search criteria                                                        | Quickly decide that the Workshop I am looking for is available                                      |
+|            |                   |                                                                                                                       |                                                                                                     |
+| 13         | Student / Shopper | Add the selected workshop into   my shopping bag                                                                      | select the workshops that I want to purchase                                                        |
+| 14         | Student / Shopper | See the subtotal and the Grand total of the items,  including delivery charges (if any) in the shopping bag           | View the breakups of the amount that I have to pay if I go   ahead with the order                   |
+| 15         | Student / Shopper | Allowing users to view items in   their bag to be purchased                                                           | See my selection of items in the shopping bag                                                       |
+| 16         | Student / Shopper | Modify the quantity of items in   my shopping bag                                                                     | Make changes in my shopping bag in the last moment                                                  |
+| 17         | Student / Shopper | Delete any item from the   shopping bag                                                                               | Remove any items from the shopping bag if I found the correct   match                               |
+| 18         | Student / Shopper | View the new grand total once the quantity in the shopping bag  Is modified or deleted                                | Quickly decide and move ahead for paying the new price                                              |
+| 19         | Student / Shopper | Checkout by providing a valid   Credit card number                                                                    | Make a purchase                                                                                     |
+| 20         | Student / Shopper | sufficiently notified if my card   number is invalid                                                                  | Modify my card number and provide a valid card details                                              |
+| 21         | Student / Shopper | Get a successful purchase message once the purchase has been made                                                     | I can be sure that the purchase is successful                                                       |
+| 22         | Student / Shopper | See an empty shopping bag on   successful purchase                                                                    | see that there is nothing in my shopping bag as the payment   has been successful                   |
+| 23         | Student / Shopper | View my order details                                                                                                 | get an order number which is valid and be sure that I have   made a successful purchase             |
+| 24         | Student / Shopper | Get an email for the order made                                                                                       | use the mail for a formal confirmation of the items that has   been purchased                       |
+|            |                   |                                                                                                                       |                                                                                                     |
+| 25         | superuser         | Create a new blog post                                                                                                | Connect with people using the website to comment and   collaborate                                  |
+| 26         | site User         | View the list of Blog Posts                                                                                           | See all the blog topics at once                                                                     |
+| 27         | site User         | Select and read any of the blog   posts                                                                               | Read the blog post in full                                                                          |
+| 28         | site User         | Add a comment to the block post                                                                                       | Share my opinion                                                                                    |
+| 29         | site User         | Read the comments made by other   site user on the blog post                                                          | Learn about others opinion                                                                          |
+|            |                   |                                                                                                                       |                                                                                                     |
+| 30         | superuser         | Create a new workshop and add the Title, Category,  Description, Hosted By, Date and time, venue, Image Url and price | Add workshops to the database                                                                       |
+| 31         | superuser         | Notified of any invalid entries   for creating a workshop.                                                            | Make the necessary changes before commiting the records in the   database                           |
+| 32         | superuser         | Notified if the workshop has   been created successfully                                                              | Be sure that they are saved in   the database and will be available for users to enrol for the same |
+| 33         | superuser         | Update an existing workshop data                                                                                      | Make any changes to the date and time or venue if required                                          |
+| 34         | superuser         | Delete a workshop                                                                                                     | remove any cancelled workshop                                                                       |
+
 
 ### Design Choices
+
 The website structure is kept simple, I have not used too many colors, so as to balance out the colors of the workshops which are displayed.
 The hero-image has been selected keeping in mind that this is all about visual arts, and mostly dealing with bright stuffs.
 I have hence chosen color combination that gives a warm feeling and is easy to go with, where the textual content is well received.
+
 #### Fonts
+
 * For the most part of the website, I have used the font "Roboto" which gives a good reading experience. They are nicely spaced and make the site look more fuller.
 * For the Logo is a combination of the font's 'Goblin One' and 'Caveat'. The subheadings of each page, I have used a cursive version of 'Goblin One' of small size, so that it gets more weightage than the rest of the site content. 
 * For the Nav bar, I have used "Roboto Slab" which I think fitted very well to put that highlight on the nav elements
@@ -148,8 +154,10 @@ Some of the bootstrap classes have been modified to fulfill the specific needs o
 ## Project Features
 
 ### Existing Features
+
 **FEATURES IMPLEMENTED**
-*Elements Across the wewbsite*
+
+***Elements Across the wewbsite***
 Bootstrap Grid system have been used to structure pages and make them responsive for various viewports.
 Bootstrap NavBar navbar to allow easy navigation throughout the web app. Able to reach all pages of the app from the NavBar. For mobile and smaller devices the navbar is found in the hamburger menu.
 Bootstrap NavBar contains site title, which acts as a home button, dropdowns for accessing account actions, link to shopping basket and filters to help navigate the site.
@@ -160,42 +168,42 @@ Hover used on all buttons and web/email addresses.
 Bootstrap Toasts used for all flashed messages after completion of an action.
 Search bar at the top of the screen that is linked to keyword searches to display workshops with matching words in the Title and Description fields.
 
-*Home Page Elements*
+***Home Page Elements***
 A hero Image on top in-tune with the theme of the project
 A short writeup about the objective of the website and a link which takes the user to the workshop page
 
-*Login Page Elements*
+***Login Page Elements***
 User login form allowing input from the user for their username and password with "Sign In" submit button which queries the Database to check the validity of the user.
 If the user is valid, a toast message is displayed and the user is redirected to the Workshops page.
 If a matching user is not found, the user cannot proceed further, and an error message is generated
 Links are displayed to allow the user to register or to reset their password.
 
-*Registration Page Elements*
+***Registration Page Elements***
 Registration form expecting the following input from the user: 
 - email address, confirm email address, username, password, confirm password.
 "Sign Up" submit button sends info to DB and shows a verification page prompting the user to confirm that they want to sign up.
 
-*Workshops Page Elements*
+***Workshops Page Elements***
 This page displayes Workshop information using Bootstrap cards along with the associated image of the workshop
 The user can get into a more detailed understanding of the workshop by clicking the picture, which takes the user to the Workshop detail page
 On Clicking the Category name, associated with the workshop, the user will be able to filter, and display, all the workshops for that Category
 ** Back to Top button at the bottom right of the screen.
 If the user is a SuperUser, Edit/Delete pills will be displayed to allow easy Workshop Management.
 
-*Workshop Detail Page Elements*
+***Workshop Detail Page Elements***
 In the detail page for the workshop, to the left, the associated image of the workshop is displayed, if there is no image associated, then the no_image.jpg is displayed
 To the right the title, description, venue, date & time, Hosted by name and price along with quantity selector is displayed.
 Plus/Minus quantity icons are placed either side of Number Input Field which can also be manually updated or using the up/down arrows that appear in the field.
 Two buttons - add to bag and keep shopping - are below the quantity input field.
 Keep Shopping returns the user to the All Workshop page and Add to Bag adds items to the bag which displays a Bootsrap Toast success html which will show the items of the bag and the total amount purchased. 
 
-*Shopping bag page elements*
+***Shopping bag page elements***
 This page is displayed after the user adds the items into the shopping bag and selects to do checkout
 The user will be able to adjust the quantity of the items in the basket using the plus/minus icons and clicking the update link or remove the whole line by clicking the remove link.
 The grand total along with the taxes or delivery charge (if any) is computed and displayed for a particular order
 The buttons at the bottom allow the user to confirm that they wish to proceed with paying and takes them to the checkout page or to return to the all products page.
 
-*Checkout Page Elements*
+***Checkout Page Elements***
 After the user finalizes their purchase, they can move ahead to do a checkout and make the payment of the purchase.
 This page is divided into two parts, the first one, shows the order summary, the second part shows a form requesting for demographic information about the user.
 The user must populate the form on the left before being able to continue the checkout process.
@@ -204,17 +212,17 @@ The credit card field is linked to STRIPE and the form inherits the stripe valid
 Buttons at the bottom allow the user to go back to the shopping bag and make adjustments to the quantity purchased or move ahead to pay and complete the order.
 **Once the user submits the payment information an opaque overlay appears to show that the payment is being processed.
 
-*Checkout Success / Order Confirmation Page*
+***Checkout Success / Order Confirmation Page***
 The order confirmation page lists out the order number and the detail of the purchase along with the subtotal and grandtotal.
 A button under the summary directs the user to the Events page 
 The user can browse back to the Workshops Page on onward to Read the Published Blogs in the site.
 
-*Blog list Page*
+***Blog list Page***
 A signed in or anonymous user, can navigate to the Blog page using the Navigation links at the top of the page. 
 The Blog list plays displays the list of Active Blogs, their author names and the date on which the blog was published.
 The user can select any one to read and is directed to the Blog detail page
 
-*Blog detail Page elements*
+***Blog detail Page elements***
 Any user can read the go to the blog detail page to read and comment on the blog post. 
 Users can read other users comments which are displayed below the Blog itself.
 Users can post their comments on the blog by using the form below, with their names, email-id and the comments and selecting Post.

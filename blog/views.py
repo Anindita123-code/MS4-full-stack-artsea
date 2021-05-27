@@ -1,8 +1,10 @@
-from django.shortcuts import render, reverse, redirect, get_object_or_404
+from django.shortcuts import (
+    render, reverse, redirect, get_object_or_404)
 from .forms import BlogForm, CommentOnBlogForm
 from .models import Blog, CommentOnBlog
 from django.contrib import messages
 from datetime import datetime
+from profiles.models import UserProfile
 from django.contrib.auth.decorators import login_required
 
 
@@ -22,7 +24,20 @@ def show_blog(request, blog_id):
     blog_comments = CommentOnBlog.objects.all()
     comments_on_blog = blog_comments.filter(Blog_id__id__in=(blog_id,))
     
-    form = CommentOnBlogForm()
+    profile = None
+       
+    if request.user.is_authenticated:
+        try:
+            profile = UserProfile.objects.get(user=request.user)
+            initial_data = {
+                'username': request.user,
+                'email': profile.user.email,
+            }
+            form = CommentOnBlogForm(initial=initial_data)
+        except UserProfile.DoesNotExist:
+            form = CommentOnBlogForm()
+    else:
+        form = CommentOnBlogForm()
     template = 'blog/blog_detail.html'
     if request.method == "POST":
 

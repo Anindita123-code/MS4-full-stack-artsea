@@ -1,0 +1,5 @@
+{% if item.workshop.image %}
+    <img height=30% width=30% class="img-fluid rounded" src="{{ item.workshop.image.url }}" alt="{{ workshop.title }}">
+{% else %}
+    <img height=30% width=30% class="img-fluid rounded" src="/media/No_Image.jpeg" alt="{{ workshop.title }}">
+{% endif %}

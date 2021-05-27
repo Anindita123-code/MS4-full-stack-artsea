@@ -175,30 +175,86 @@ Registration form expecting the following input from the user:
 - email address, confirm email address, username, password, confirm password.
 "Sign Up" submit button sends info to DB and shows a verification page prompting the user to confirm that they want to sign up.
 
+*Workshops Page Elements*
+This page displayes Workshop information using Bootstrap cards along with the associated image of the workshop
+The user can get into a more detailed understanding of the workshop by clicking the picture, which takes the user to the Workshop detail page
+On Clicking the Category name, associated with the workshop, the user will be able to filter, and display, all the workshops for that Category
+** Back to Top button at the bottom right of the screen.
+If the user is a SuperUser, Edit/Delete pills will be displayed to allow easy Workshop Management.
 
-### Features Left to Implement
+*Workshop Detail Page Elements*
+In the detail page for the workshop, to the left, the associated image of the workshop is displayed, if there is no image associated, then the no_image.jpg is displayed
+To the right the title, description, venue, date & time, Hosted by name and price along with quantity selector is displayed.
+Plus/Minus quantity icons are placed either side of Number Input Field which can also be manually updated or using the up/down arrows that appear in the field.
+Two buttons - add to bag and keep shopping - are below the quantity input field.
+Keep Shopping returns the user to the All Workshop page and Add to Bag adds items to the bag which displays a Bootsrap Toast success html which will show the items of the bag and the total amount purchased. 
+
+*Shopping bag page elements*
+This page is displayed after the user adds the items into the shopping bag and selects to do checkout
+The user will be able to adjust the quantity of the items in the basket using the plus/minus icons and clicking the update link or remove the whole line by clicking the remove link.
+The grand total along with the taxes or delivery charge (if any) is computed and displayed for a particular order
+The buttons at the bottom allow the user to confirm that they wish to proceed with paying and takes them to the checkout page or to return to the all products page.
+
+*Checkout Page Elements*
+After the user finalizes their purchase, they can move ahead to do a checkout and make the payment of the purchase.
+This page is divided into two parts, the first one, shows the order summary, the second part shows a form requesting for demographic information about the user.
+The user must populate the form on the left before being able to continue the checkout process.
+There are required fields in the form and this information will be saved to the DB if the user has logged in or creates an account prior to checkout.
+The credit card field is linked to STRIPE and the form inherits the stripe validations associated with credit cards
+Buttons at the bottom allow the user to go back to the shopping bag and make adjustments to the quantity purchased or move ahead to pay and complete the order.
+**Once the user submits the payment information an opaque overlay appears to show that the payment is being processed.
+
+*Checkout Success / Order Confirmation Page*
+The order confirmation page lists out the order number and the detail of the purchase along with the subtotal and grandtotal.
+A button under the summary directs the user to the Events page 
+The user can browse back to the Workshops Page on onward to Read the Published Blogs in the site.
+
+*Blog list Page*
+A signed in or anonymous user, can navigate to the Blog page using the Navigation links at the top of the page. 
+The Blog list plays displays the list of Active Blogs, their author names and the date on which the blog was published.
+The user can select any one to read and is directed to the Blog detail page
+
+*Blog detail Page elements*
+Any user can read the go to the blog detail page to read and comment on the blog post. 
+Users can read other users comments which are displayed below the Blog itself.
+Users can post their comments on the blog by using the form below, with their names, email-id and the comments and selecting Post.
+Once posted, their comments will show up in the section of view comments.
+
+### Features Left to Implement (none)
 
 ## Technologies Used
+
+HTML - used to create the site structure.
+CSS - used to create the styling throughout the site.
+JavaScript - this was used for the addition/deletion of ingredients and methods buttons
+jQuery - this was used to activate the Materialize functionality.
+Python - used to write the logic that operates the site.
+Django - web framework used to allow a modular site to be created.
+Font-Awesome - icons were taken from this site for the forms, header, footer and social buttons.
+Google fonts - as previously stated, the fonts used were taken from here.
+Heroku - used for hosting website.
+Bootstrap - used for responsive grid framework, navigation and buttons.
+Stripe - ecommerce payment system.
 
 ### Languages
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) for creating the webpages
 - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) for designing and styling the web pages
+- [javascript] (https://www.javascript.com/)
 - [Python](https://www.python.org/) for the backend development
-- [Jinja Templating language](https://jinja.palletsprojects.com/en/2.11.x/) have been used in conjuction with python for the working of the website
-
 ### Database
-- [SQLlite (in Development)]() and [Postgres (at deployment)]() Although Sqllite has been used as the backend databse during development, the 
+- [SQLlite (in Development)]() and [Postgres (at deployment)]() Although Sqllite has been used as the backend database during development, the 
 ### Libraries and Frameworks
 - [Font Awesome](https://fontawesome.com/) - have been used for the button icons that are used in the website
-- [Materialize](https://materializecss.com/) - the various components of materialize have been used to draw the webpage structures and form elements
 - [Google Fonts](https://fonts.google.com/) have been used to give the website a uniform look with the help of fonts provided by google
 - [JQuery](https://jquery.com) - have been used to simplify DOM manipulation.
-- [Flask Framework](https://flask.palletsprojects.com/en/1.1.x/) Jinja and Werkzeug from Flask have been extensively used
-
+- [Django](https://www.djangoproject.com/) - web framework for creating modular websites
+- [Bootstrap](https://getbootstrap.com/docs/3.4/css/) - css used for responsive grid framework and general styling
+- [Stripe](https://stripe.com/en-dk) - used for payment with credit card
 ### Hosting
 - [Github](https://github.com/) have been used for storing the application in public repositories
 - [GitPod](https://gitpod.io/workspaces/) have been used as the primary development platform
 - [Heroku](https://www.heroku.com/) have been used to host the website
+- [AWS](https://aws.amazon.com/?nc2=h_lg) for static and media files
 
 ## Testing
 

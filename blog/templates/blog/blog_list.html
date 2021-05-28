@@ -23,27 +23,27 @@
                 <div class="p-2 border">
                     <div class="row">
                         <div class="col">
-                            <small class="text-muted">Published Blog Titles:</small>
+                            <small class="text-muted blog-list-title text-brown">Published Blog Titles:</small>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-8 text-left"><strong>Topic</strong></div>
-                        <div class="col-md-2 text-left"><strong>Author</strong></div>
-                        <div class="col-md-2 text-left"><strong>Date</strong></div>
+                    <div class="row blog-list-title">
+                        <div class="col-md-6 text-left"><strong>Topic</strong></div>
+                        <div class="col-md-3 text-left"><strong>Author</strong></div>
+                        <div class="col-md-3 text-left"><strong>Date</strong></div>
                     </div>
                     <hr>
                      {% for item in blog_list.all %}
-                    <div class="row">
-                        <div class="col-md-8 text-md-center">
-                            <a class="small mb-0 text-primary font-weight-bold" href="{% url 'show_blog' item.id %}">
+                    <div class="row blog-list">
+                        <div class="col-md-6 text-md-center">
+                            <a class="small mb-0 " href="{% url 'show_blog' item.id %}">
                                 {{ item.blog_title }}
                             </a>
                         </div>
-                        <div class="col-md-2 text-md-left">
-                            <p class="small mb-0 font-weight-bold">{{ item.blog_author }}</p>
+                        <div class="col-md-3 text-md-left">
+                            <p class="small mb-0">{{ item.blog_author }}</p>
                         </div>
-                        <div class="col-md-2 text-md-left">
-                            <p class="small mb-0 font-weight-bold">{{ item.blog_date }} </p>
+                        <div class="col-md-3 text-md-left">
+                            <p class="small mb-0">{{ item.blog_date }} </p>
                         </div>
                     </div>
                     {% endfor %}

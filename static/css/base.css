@@ -20,12 +20,14 @@ body {
 }
 
 footer {
+
     background-color: #2e2e2e;
     color: white;
 }
 
 .header-container-page{
     padding-top: 200px;
+
 }
 /* from Bulma */
 .icon {
@@ -119,6 +121,9 @@ footer {
 	background: white;
 	z-index: -1;
 }
+.bottom-overlay{
+    min-height: 50px;
+}
 
 .btt-button {
     height: 42px;
@@ -183,6 +188,16 @@ footer {
     letter-spacing: 2px;
     padding: 10px 35px;
     margin-top: 15px;
+}
+.blog-list-title{
+    font-family: 'Roboto Slab', serif;
+    font-size: 15px;
+}
+.blog-list{
+    font-family: 'Roboto', serif;
+    /* font-weight: ; */
+    font-size: 18px;
+    letter-spacing: 1px;
 }
 /* -------------------------------- Media Queries */
 

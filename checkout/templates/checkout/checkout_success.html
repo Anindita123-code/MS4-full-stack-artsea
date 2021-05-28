@@ -158,8 +158,12 @@
                         <span class="text-uppercase">Back to profile!</span>
                     </a>
                 {% else %}
+                <br>
                     <a href="{% url 'workshops' %}" class="btn btn-black rounded-0 my-2">
                             EXPLORE MORE
+                    </a>
+                    <a href="{% url 'blog_list' %}" class="btn btn-black rounded-0 my-2">
+                            READ BLOGS
                     </a>
                 {% endif %}
 			</div>

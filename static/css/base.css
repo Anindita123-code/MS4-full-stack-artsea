@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Goblin+One&family=Roboto:wght@100&&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 html {
     height: 100%;
@@ -76,13 +77,13 @@ footer {
 }
 
 .btn-black {
-    background: black;
+    background: rgb(22, 70, 124);;
     color: white;
 }
 
 .btn-outline-black {
     background: white;
-    color: black;
+    color: rgb(22, 70, 124);
     border: 1px solid black;
 }
 
@@ -181,10 +182,12 @@ footer {
 .blog-title-font {
     font-family: 'Roboto Slab', serif;
     font-size: 25px;
+    color: rgb(22, 70, 124);
 }
 .blog-content{
     font-family: 'Roboto', serif;
-    font-size: 20px;
+    font-weight: 100 !important;
+    font-size: 22px;
     letter-spacing: 2px;
     padding: 10px 35px;
     margin-top: 15px;
@@ -196,8 +199,10 @@ footer {
 .blog-list{
     font-family: 'Roboto', serif;
     /* font-weight: ; */
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: 300;
     letter-spacing: 1px;
+    color: rgb(22, 70, 124) !important;
 }
 /* -------------------------------- Media Queries */
 
@@ -242,8 +247,12 @@ footer {
 @media screen and (max-width: 768px)  {
     #hero_image{
         background: url('/media/homepage_head.jpeg') no-repeat fixed;
-        height: 300px;
-        width: 100%;
+        max-height: 300px;
+        max-width: 100%;
+        background-position: left;
+        position: relative;
+        
+        /* bottom: -300px; */
     }
     .header-container-page{
         padding-top: 25px;
@@ -252,7 +261,8 @@ footer {
 
 @media screen and (max-width: 480px)  {
     .navbar {
-        padding: 0 !important;
+        /* padding: 0 !important; */
+        background: #5ca5ca !important;
     }
     .nav-link {
         padding: 0.15rem;
@@ -335,8 +345,8 @@ footer {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-color: #000;
-    border: 1px solid #000;
+    background-color:rgb(22, 70, 124);
+    border: 1px solid rgb(22, 70, 124);
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;

@@ -1,4 +1,4 @@
-<li class="list-inline-item">
+<li class="list-inline-item ">
     <a class="text-black nav-link d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="text-center">
             <div><i class="fas fa-search fa-lg"></i></div>
@@ -44,8 +44,8 @@
 <li class="list-inline-item">
     <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="{% url 'view_bag' %}">
         <div class="text-center">
-            <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-            <p class="my-0">
+            <div class="text-white"><i class="fas fa-shopping-bag fa-lg"></i></div>
+            <p class="my-0 text-white">
                 {% if grand_total %}
                     dkk{{ grand_total|floatformat:2 }}
                 {% else %}

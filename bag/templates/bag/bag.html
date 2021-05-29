@@ -81,36 +81,34 @@
                                     <td class="py-3">
                                         <!-- update the quantity of items in the shopping bag -->
                                         {% include 'bag/quantity_form.html' %}
-                                        <a class="update-link"><small>Update</small></a>
-                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}"><small>Remove</small></a>
                                     </td>
                                 </tr>
                                 
                             {% endfor %}
-                            <tr>
-                                <td colspan="5" class="pt-5 text-right">
-                                    <h6><strong>Bag Total: DKK {{ total|floatformat:2 }}</strong></h6>
-                                    <h6>Delivery: DKK {{ delivery|floatformat:2 }}</h6>
-                                    <h4 class="mt-4"><strong>Grand Total: DKK {{ grand_total|floatformat:2 }}</strong></h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="5" class="text-right">
-                                    <a href="{% url 'workshops' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                                        <span class="icon">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </span>
-                                        <span class="text-uppercase">Buy More</span>
-                                    </a>
-                                    <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
-                                        <span class="text-uppercase">Secure Checkout</span>
-                                        <span class="icon">
-                                            <i class="fas fa-lock"></i>
-                                        </span>
-                                    </a>
-                                    
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td colspan="5" class="pt-5 text-right">
+                                        <h6><strong>Bag Total: DKK {{ total|floatformat:2 }}</strong></h6>
+                                        <h6>Delivery: DKK {{ delivery|floatformat:2 }}</h6>
+                                        <h4 class="mt-4"><strong>Grand Total: DKK {{ grand_total|floatformat:2 }}</strong></h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" class="text-right">
+                                        <a href="{% url 'workshops' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                                            <span class="icon">
+                                                <i class="fas fa-chevron-left"></i>
+                                            </span>
+                                            <span class="text-uppercase">Buy More</span>
+                                        </a>
+                                        <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
+                                            <span class="text-uppercase">Secure Checkout</span>
+                                            <span class="icon">
+                                                <i class="fas fa-lock"></i>
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 {% else %}

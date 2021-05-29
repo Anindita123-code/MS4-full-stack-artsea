@@ -266,6 +266,8 @@ Stripe - ecommerce payment system.
 
 ## Testing
 
+The test results for Artsea can be found in [here]()
+
 ### Validation Checks
 
 #### HTML Validation
@@ -303,6 +305,7 @@ Following is a snapshot of the outcome of the Audit using lighthouse
 ## Deployment
 
 The project uses github for hosting and has been deployed using heroku. The github repository is connected to the heroku.
+The static folder contents and the media folders of the project are deployed in AWS.
 
 ### Deploy to Heroku
 The project is connected to Heroku using automatic deployment from GitPod , using the following steps...
@@ -324,23 +327,72 @@ The project is connected to Heroku using automatic deployment from GitPod , usin
     We need to add this to github by using the git add -A Procfile command, then git commit and finally push this into the git repository using the git push command.
 
 **Step 2: Creating a New App in Heroku.**
-    After usual login into Heroku, we need to create a new App. My new app for this project is named "views-and-reviews". The next step here is to 
+    After usual login into Heroku, we need to create a new App. My new app for this project is named "Artsea-anindita". The next step here is to 
     choose the appropriate region, then click 'Create app'.
+
+**Step 3 Configure the Postgres database for Artsea**
+    Before the application is deployed, We need to install the following packages using pip3 and get the databse up and running
+    In the resource tab of Heroku workspace, we need to provision a new Postgres database. After this we need to get back to gitpod and install the following packages
+
+    -- pip3 install dj_database_url and psycopg2-binary
+    -- pip3 freeze > requirements.txt
+
+    Now we need to run the migrations after connecting to the new database. This can be easily done by changing the the database configurations to dj_database_url.parse with the new DATABASE_URL (this can be found in the config vars of settings in Heroku app)
+    Once the migrations are run successfully, the new table structures would be created. The commands are as follows:
+
+    $ python3 manage.py makemigrations --dry-run
+    $ python3 manage.py makemigrations
+    $ python3 manage.py migrate --plan
+    $ python3 manage.py migrate
+
+    The next step is to run the fixtures for the 1) Category and then 2) Workshop table and finally 3) Blog table
+    On running the fixtures the tables will have the necessary data to run the application.
+
+    $ python3 manage.py looddata categories
+    $ python3 manage.py loaddata workshop
+    $ python3 manage.py loaddata blog
+
+**Step 4: Create superuser and run the application**
+
+    Before we start to do anything with the app. We have to create a superuser profile. Which is the admin user of Artsea. This is the artsea_admin user.
+
+    $ Python3 manage.py createsuperuser 
+    is used to create a superuser, by providing a userid and password.
+
+    to run the application we need to install another package called gunicorn. So we run the following command
+
+    $ pip3 install gunicorn (the webserver)
+    $ pip3 freeze > requirements.txt
+
+    Following this we create the Procfile. this is to tell Heroku to create a web dyno Which will run unicorn and serve our django app.
+    Finally we need to disable collectstatic by using the following command.
+
+    $ heroku config:set DISABLE_COLLECTSTATIC=1 --app anindita_artsea 
+    This will stop collecting the static files and the media files while we push our code to heroku from github. After this we set git remote to Heroku.
+
+    $ heroku git:remote -a anindita-artsea
+    $ git push Heroku master
 
 **Step 3: Connect your git repository to Heroku App.**
     On the Heroku Dashboard, we need to select the deploy tab and select the Deployment method 'GitHub'.
 
     On the 'Connect to GitHub' section I need to search for my git repository which contains my project code. This is "Milestone3_Data_Centric" that i had created in Github for my project. I will need to search for this repository and connect to this one once the search results are displayed with my repository listing.
 
-    My Github repository "Milestone3_Data_Centric" has my codebase, which is now connected to the new Heroku App.
+    My Github repository "MS4-full-stack-artsea" has my codebase, which is now connected to the new Heroku App.
 
 **Step 4: Setup the Config variables in Heroku App**
     In the Settings tab on Heroku Dashboard, we need to select "Reveal Config Vars" to enter variables (key and value) contained in the env.py file. Following are the keys that have been used in this project and also in the Config Vars of the Heroku App.
-        IP
-        PORT
-        SECRET_KEY
-        MONGO_URI
-        MONGO_DBNAME
+        **Config Var**	
+        AWS_SECRET_KEY_ID           - obtained when you set up AWS
+        AWS_SECRET_ACCESS_KEY       - obtained when you set up AWS
+        DATABASE_URL	            - created when you provisioned Postgres
+        EMAIL_HOST_PASS	            - obtained from your email provider
+        EMAIL_HOST_USER	            - your email address
+        SECRET_KEY                  - obtained from miniwebtool
+        STRIPE_PUBIC_KEY            - obtained from STRIPE
+        STRIPE_SECRET_KEY           - obtained from STRIPE
+        STRIPE_WH_SECRET            - obtained from STRIPE
+        USE_AWS	                    - Set to True
 
 **Step 5: Deploy my project to Heroku.**
     Once all the above 4 steps are done, we need to go to the Deploy tab on Heroku Dashboard and under the Automatic deployment section, click 'Enable Automatic Deploys'. This was done, so that all subsequent git commits in my git repository is reflected in the Heroku App as well. 
@@ -349,6 +401,65 @@ The project is connected to Heroku using automatic deployment from GitPod , usin
     Heroku will now receive the code from GitHub and start building the app using the required packages.
 
     Once built you will receive the message 'Your app was successfully deployed' and you can click 'View' to launch your new app.
+
+**Generate secret key for Django**
+
+    Finally, all projects should have their separate Django secret keys, which can be obtained by using the [Django Secret key generator](https://miniwebtool.com/django-secret-key-generator/)
+    The newly generated secret key is stored as a Key value pair in the Config Vars of Settings in the Heroku app.
+
+    SECRET_KEY - key obtained from miniweb tools
+
+**Step 6: Configure AWS for hosting static (css and js) files and media (uploaded images)**
+    In order for the static css, js and media files to be stored and useable with Heroku, you need to set up an AWS account. I created a Root user account for AWS.
+    In AWS we need to use the service S3 and IAM. We need to search for the service S3.
+
+    Then do the following:
+    * Search for S3.
+    * Create a new bucket and ensure that the Block All Public Access tickbox is unchecked and acknowledge that the bucket will be public
+    * Select Static Website hosting under Properties which would allow static files to be hosted in AWS
+    * Set up the ***Cross-origin resource sharing (CORS)*** in the property tab. The following settings are done in CORS
+        [   
+            {       
+                "AllowedHeaders": [
+                                    "Authorization"
+                                ],
+                                    "AllowedMethods": ["GET"],
+                                    "AllowedOrigins": ["*"],
+                                    "ExposeHeaders": []
+            }
+        ]
+
+    * Click the Policy Tab and select Policy Generator which creates a security policy for the bucket. This S3 policy needs to be generated by filling th necessary fields
+    * Copy the generated policy in to the Bucket Policy Editor. 
+    * Add /* at the end of the resource key as this will allow access to all resources in the bucket and then save it.
+    * Click the Access Control tab and set the list object permission to everyone under the Public Access section.
+    * Next we need to configure the IAM, So we need to Open IAM from the service menu.
+    * Then we need to create a group and create an access policy for the group which would give access to the S3 bucket.
+    * Click the JSON tab and select import managed policy, search for S3 and select S3 Full Access Policy.
+    * Now we will attach the policy to the group we created (artsea-group for me) by searching the policy we just created and selecting it and then clicking the Attach Policy
+    * Create a user (artsea-staticfiles-user for me), give them programmatic access and attach it to the group. And then click create policy. This takes us back to the policies page where we can see our policy has been created.
+    * Download the CSV file that is generated as this contains the keys required to use AWS.
+
+Now that we've created an s3 bucket and the appropriate user's groups and security policies for it. The next step is to connect django to it. To do this we'll need to install two new packages.
+    
+    $ pip3 install boto3
+    $ pip3 install django-storages
+    $ pip3 freeze > requirements.txt
+
+    * To connect Jango to s3 we need to add some settings in settings.py to tell it which bucket it should be communicating with. We'll only want to do this on Heroku. So let's add an if statement
+    * to check if there's an environment variable called USE_AWS in the environment. If so we will define the AWS_STORAGE_BUCKET_NAME, AWS_S3_REGION_NAME and our access key, and secret access key, which we'll get from the environment.
+    * With those settings added, we will go to Heroku and add our AWS keys to the config variables along with a key called USE_AWS which is set to true, so that our setting file knows to use the AWS configuration when we deploy to Heroku
+    * Next we will need to remove the disable collectstatic variable so that with our next deployment in Heroku the static files are collected automatically into S3
+    * Back in our settings file we need to tell django where our static files will be coming from in production this would be our bucket name (AWS_STORAGE_BUCKET_NAME in configvars).s3.amazonaws.com
+    * The next step is to tell django that in production we want to use s3 to store our static files whenever someone runs collectstatic And that we want any uploaded product images to go there also we will do this by creating a file called custom_storages.py and create a custom class called static_storage and tell Django that we want to store static files in a location from settings.py (STATICFILES_LOCATION)
+    * The same step is repeated for media files and specify the MEDIAFILES_LOCATION key in settings.py so that whenever we run python3 manage.py runserver collectstatic (While DISABLE_COLLECTSTATIC is set to 0). 
+    * Whenever collectstatic is run Static files will be collected into a static folder in our s3 bucket automatically. To make sure it works, all we have to do is add all these changes. Commit them.
+        and then issue a git push. Which will trigger an automatic deployment to Heroku. With that done if we look at the build log. We can see that all the static files were collected successfully.
+        And if we now go to s3 We can see we have a static folder in our bucket with all our static files in it.
+    * While our app is deploying we will add media files to s3. We can do this by creating a new folder in S3 called media, and upload the workshop and related images for the site
+    * Next under manage public permissions, we have to grant public read access to these objects and then click upload. 
+
+So now my AWS has both my static and my media files that are needed to run the application.
 
 ### Access to code
 The codebase in github can be accessed by forking and making a local clone of the repository "Milestone3_Data_Centric"
@@ -388,27 +499,24 @@ Once this is done, the Project can be run from the local using the following com
 ## Credits
 * For creating the sitemap I have used [Gloomaps](https://www.gloomaps.com/EJjeybEnhs)
 * For Creating the Data Flow Diagram I have used [Miro](https://miro.com/app/board/o9J_lWeK1kc=/)
-* For generating values for Secret Keys, I have used [RandomKeygen](https://randomkeygen.com/). A SECRET_KEY is required when using the flash and session functions of Flask.
 * For creating the favicon.ico I have used [Gauger.io](https://gauger.io/fonticon/)
 * I have used [Dbdiagrams.io](https://dbdiagram.io/home) for creating the Entity Relationship Diagram for the website
 * I owe a huge thank you to [Stack Overflow](https://stackoverflow.com/) for addressing most of my queries.
-* For addressing complex searches I have referred to [MongoDB Documentation](https://docs.mongodb.com/manual/reference/operator/query/regex/)
-* For error handling, I have referred to [Flask Palletprojects link](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/#error-handlers)
+* The Boutique Ado application of Code Institute Training modules has been a huge inspiration for doing this project.
 * Table of contents generated in the Readme has been generated with the help of markdown-toc
-* All images and contents of books have been taken from [Books at Amazon](https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155)
-* I am thankful to the Peer review Group of CI for giving me a lot of feedback to improve my project
+* All images and contents of books have been taken from real workshops of Art studios that I am connected with in Copenhagen
+* I am thankful to my Mentor Aaron Signott for his able guidance in this project.
+* I am thankful to the Peer review Group of CI and May-2020 group on slack for giving me a lot of feedback to improve my project, and encouraged me all along this journey.
 * I am thankful to my family and friends for using this site to post some real reviews 
 
 ### Content
-* All images and most of the contents of books have been taken from [Books at Amazon](https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155)
-* the reviews have been mostly posted by me and some of my friends who helped me test the project.
+* All written content, of this website have been taken from facebook, and random search from google. 
 
 ### Media
-* The home page hero image has been taken from [National Endowment for humanities: Open book](https://www.neh.gov/news/press-release/2015-01-15/humanities-open-book)
+* All media images have been gathered from random search using google images, which are shareable.
 
 ### Acknowledgements
-* I have been inspired to take up the book review project oweing to my daughters love of reading story books, taken after my husband, who loves to share his opinion on books he has read
-* I am thankful to my mentor for guiding me appropriately to come this far.
+* I have been inspired to take up the Artsea project, as I look forward to host a similar kind of website in the future which would tie all art studios in Denmark together and give information to users in one common place.
 
 ### Contact
 In case of further questions and concerns please feel free to reach out to me at aninditasom@gmail.com.

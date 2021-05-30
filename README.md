@@ -453,8 +453,8 @@ Now that we've created an s3 bucket and the appropriate user's groups and securi
     Step 20 - The next step is to tell django that in production we want to use s3 to store our static files whenever someone runs collectstatic And that we want any uploaded product images to go there also we will do this by creating a file called custom_storages.py and create a custom class called static_storage and tell Django that we want to store static files in a location from settings.py (STATICFILES_LOCATION)
     Step 21 - The same step is repeated for media files and specify the MEDIAFILES_LOCATION key in settings.py so that whenever we run python3 manage.py runserver collectstatic (While DISABLE_COLLECTSTATIC is set to 0). 
     Step 22 - Whenever collectstatic is run Static files will be collected into a static folder in our s3 bucket automatically. To make sure it works, all we have to do is add all these changes. Commit them.
-        and then issue a git push. Which will trigger an automatic deployment to Heroku. With that done if we look at the build log. We can see that all the static files were collected successfully.
-        And if we now go to s3 We can see we have a static folder in our bucket with all our static files in it.
+            and then issue a git push. Which will trigger an automatic deployment to Heroku. With that done if we look at the build log. We can see that all the static files were collected successfully.
+            And if we now go to s3 We can see we have a static folder in our bucket with all our static files in it.
     Step 23 - While our app is deploying we will add media files to s3. We can do this by creating a new folder in S3 called media, and upload the workshop and related images for the site
     Step 24 - Next under manage public permissions, we have to grant public read access to these objects and then click upload. 
 

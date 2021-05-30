@@ -12,7 +12,7 @@ class BlogAdmin(admin.ModelAdmin):
         'blog_content',
         'blog_content_para2',
         'blog_content_para3',
-        'blog_date', 
+        'blog_date',
     )
     ordering = ('-blog_date',)
 
@@ -26,6 +26,7 @@ class CommentOnBlogAdmin(admin.ModelAdmin):
         'email',
     )
     ordering = ('-date',)
+
 
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(CommentOnBlog, CommentOnBlogAdmin)

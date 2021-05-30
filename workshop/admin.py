@@ -8,12 +8,12 @@ class WorkshopAdmin(admin.ModelAdmin):
     list_display = (
         'category_name',
         'workshop_name',
-        'title', 
+        'title',
         'description',
-        'hosted_by', 
-        'date_and_time', 
-        'venue', 
-        'image_url', 
+        'hosted_by',
+        'date_and_time',
+        'venue',
+        'image_url',
         'image',
     )
     ordering = ('workshop_name',)
@@ -29,4 +29,3 @@ class CategoryAdmin(admin.ModelAdmin):
 
 admin.site.register(Workshop, WorkshopAdmin)
 admin.site.register(Category, CategoryAdmin)
-

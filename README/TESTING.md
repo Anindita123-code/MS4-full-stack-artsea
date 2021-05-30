@@ -83,16 +83,24 @@ This is done only by the superuser of the website. The CRUD operation
 ### Validation Tests
 
 ***HTML Validation**
-The HTML for the project has been validated using W3C's Validation service. Since the HTML is created and maintained as separate parts in templates, the page HTML's have been taken using View->Developer->View Source and the code blocks have been tested for Validity. The HTML Code used in all the pages are Valid as per W3C standards
+The HTML for the project has been validated using [W3C's Validation service](https://validator.w3.org/). 
+The generated html is complaint as per W3C standards with no errors / warnings
 
 **CSS Validation**
-The custom css style.css in the static folder of the project has been validated using W3C Css Validation service. No errors were detected. Below is the snapshot for the same. CSS Validation outcome
+There are two css files used in the project the main css file is the  base.css is in the /static/css/ folder and the second one is the checkout.css in the static folder of checkout
+The contents of both these files have been validated with [W3C's CSS Validator](https://jigsaw.w3.org/css-validator/). Both the files comply well with this validation.
 
 **Javascript Validation**
-The custom javascript code has been validated using jshint. There are two warnings for the 2 statements that has used 'let' to declare variables However, since the variables used are applicable for the current block of code only, I have decided to go ahead with the two warnings. The screenshot for javascript validation is Javascript validation outcome
+The custom javascript code has been validated using [JShint](https://jshint.com/). There are two warnings 
+*   One is for the use of $ which has been used for Jquery references, and hence will need to stay
+*   is the use of (``) template literals, which also need to stay, as they are implemented in handling a key functionality for stripe payments. 
 
 **PEP8 Compliance**
-The python code file has been tested for PEP8 compliance, using the PEP8 online The validation output for PEP8 is as follows PEP8 validation outcome
+The python code file has been tested for PEP8 compliance, using the PEP8 online The validation output for PEP8 is as follows 
+    $ Python3 -m flake8
+
+* I have decided to ignore any warnings on files that are automatically generated. Such as migration and Imports in files that are created automatically. This is because automatically generated files may intentionally ignore style rules for efficiency reasons.
+* Apart from this majority of the PEP8 issues have been taken care of.
 
 **Test for 404 - File not found**
 The 404 error has been trapped to display a more Project Friendly page, which has been tested. On encountering an unknown file the user will be routed to the home page of the website. Below is the snapshot for the same on Error 404

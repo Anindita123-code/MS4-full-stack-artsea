@@ -3,7 +3,6 @@ from django.shortcuts import (
 from .forms import BlogForm, CommentOnBlogForm
 from .models import Blog, CommentOnBlog
 from django.contrib import messages
-from datetime import datetime
 from profiles.models import UserProfile
 from django.contrib.auth.decorators import login_required
 
@@ -22,10 +21,8 @@ def blog_list(request):
 def show_blog(request, blog_id):
     single_blog = get_object_or_404(Blog, pk=blog_id)
     blog_comments = CommentOnBlog.objects.all()
-    comments_on_blog = blog_comments.filter(Blog_id__id__in=(blog_id,))
-    
+    comments_on_blog = blog_comments.filter(Blog_id__id__in=(blog_id,))  
     profile = None
-       
     if request.user.is_authenticated:
         try:
             profile = UserProfile.objects.get(user=request.user)
@@ -46,7 +43,6 @@ def show_blog(request, blog_id):
                 }
 
         form = CommentOnBlogForm(form_data)
-       
         if form.is_valid():
             comment = form.save(commit=False)
             comment.Blog_id = blog_id
@@ -56,7 +52,8 @@ def show_blog(request, blog_id):
             messages.success(request, 'New Blog content Added Successfully !')
             return redirect(reverse('show_blog', args=(blog_id,)))
         else:
-            messages.error(request, 'Failed to add comment to the Blog post. Please ensure that the form is valid')
+            messages.error(
+                request, 'Failed to add comment. Please ensure that the form is valid')
 
     context = {
         'blog': single_blog,
@@ -78,7 +75,6 @@ def add_blog(request):
                 'blog_content_para3': request.POST['blog_content_para3'],
             }
         blog_form = BlogForm(form_data)
-    
         if blog_form.is_valid():
             blog_form.save()
             messages.success(request, 'New Blog content Added Successfully !')
@@ -88,9 +84,8 @@ def add_blog(request):
         form = blog_form
     else:
         form = BlogForm()
-   
+
     template = 'blog/add_blog.html'
-   
     context = {
         'form': form,
     }
@@ -111,10 +106,9 @@ def edit_blog(request, blog_id):
             messages.error(request, 'Failed to update Blog. Please ensure the form is valid.')
     else:
         form = BlogForm(instance=blog)
-    
     messages.info(request, f'You are editing {blog.blog_title}')
     template = 'blog/edit_blog.html'
-    
+
     context = {
         'form': form,
         'blog': blog,
@@ -126,11 +120,9 @@ def edit_blog(request, blog_id):
 def delete_blog(request, blog_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry! Only Administrator can do that')
-        return redirect(reverse('home'))
-        
+        return redirect(reverse('home'))    
     blog = get_object_or_404(Blog, pk=blog_id)
     blog.delete()
     messages.success(request, 'Blog Deleted!')
 
     return redirect(reverse('blog_list'))
-    

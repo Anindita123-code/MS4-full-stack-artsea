@@ -16,12 +16,12 @@ def add_workshops(request):
             messages.success(request, 'successfully added workshop data')
             return redirect(reverse('add_workshop'))
         else:
-            messages.error(request, 'Failed to add Workshop. Please ensure that the form is valid')
+            messages.error(request,
+                           'Failed to add. Please ensure that the form is valid')
     else:
         form = WorkshopForm()
 
     template = 'workshop/add_workshop.html'
- 
     context = {
         'form': form,
     }
@@ -50,8 +50,6 @@ def all_workshops(request):
                 title__icontains=_query) | Q(description__icontains=_query)
 
             workshops = workshops.filter(queries)
-            # if workshops is None:
-            #     messages.info(request, "No matching records found!")
 
     context = {
         'workshops': workshops,
@@ -81,26 +79,24 @@ def edit_workshop(request, workshop_id):
             messages.success(request, 'Successfully updated workshop!')
             return redirect(reverse('workshop_details', args=[workshop.id]))
         else:
-            messages.error(request, 'Failed to update workshop. Please ensure the form is valid.')
+            messages.error(
+                request, 'Failed to update. Please ensure the form is valid.')
     else:
         form = WorkshopForm(instance=workshop)
-    
     messages.info(request, f'You are editing {workshop.title}')
-    template = 'workshop/edit_workshop.html'
-    
+    template = 'workshop/edit_workshop.html' 
     context = {
         'form': form,
         'workshop': workshop,
     }
-    return render(request, template , context)
+    return render(request, template, context)
 
 
 @login_required
 def delete_workshop(request, workshop_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry! Only Administrator can do that')
-        return redirect(reverse('home'))
-        
+        return redirect(reverse('home'))   
     workshop = get_object_or_404(Workshop, pk=workshop_id)
     workshop.delete()
     messages.success(request, 'Workshop Deleted!')

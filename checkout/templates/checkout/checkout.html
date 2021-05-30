@@ -25,7 +25,7 @@
 
         <div class="row">
             <div class="col-12 col-lg-10 order-lg-last mb-5">
-                <p class="text-muted">Order Summary ({{ product_count }})</p>
+                <p class="text-muted">Order Summary ({{ workshop_count }})</p>
                 <div class="row">
                     <div class="col-7 offset-2">
                         <p class="mb-1 mt-0 small text-muted">Item</p>
@@ -98,7 +98,9 @@
                     </fieldset>
 
                     <fieldset class="rounded px-3">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Payment <img height="25" width="70" src = "/media/visa_mastercard.png"> </legend>
+                        <legend class="fieldset-label small text-black px-2 w-auto">
+                            Payment <img height="25" width="70" src = "/media/visa_mastercard.png"> 
+                        </legend>
                         <!-- A Stripe card element will go here -->
                         <div class="mb-3" id="card-element"> </div>
 
@@ -128,8 +130,8 @@
 							<span>Your card will be charged <strong>DKK{{ grand_total|floatformat:2 }}</strong></span>
 						</p>
                     </div>
-                </div>
                 </form>
+            </div>
         </div>
     </div>
 </div>
@@ -140,8 +142,6 @@
         </span>
     </h1>
 </div>
-
-<br><br><br>
 {% endblock %}
 
 {% block postloadjs %}

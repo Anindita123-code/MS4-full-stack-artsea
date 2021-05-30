@@ -123,7 +123,7 @@ footer {
 	z-index: -1;
 }
 .bottom-overlay{
-    min-height: 50px;
+    min-height: 280px;
 }
 
 .btt-button {
@@ -173,10 +173,8 @@ footer {
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
     background-color: #dc3545;
-    border-color: #dc3545;
     border-radius: 0;
 }
-
 
 /* Style for blog pages */
 .blog-title-font {
@@ -257,6 +255,12 @@ footer {
     .header-container-page{
         padding-top: 25px;
     }   
+    .list-inline-item{
+        padding: 5px;
+    }
+    .list-inline{
+        padding-top: inherit;
+    }
 }
 
 @media screen and (max-width: 480px)  {
@@ -293,6 +297,14 @@ footer {
 
     .increment-qty, .decrement-qty {
         padding: .25rem .5rem !important;
+    }
+
+    .list-inline-item{
+        padding: 5px;
+    }
+
+    .list-inline{
+        padding-top: inherit;
     }
 }
 
@@ -341,12 +353,8 @@ footer {
     color: #fff;
     text-align: center;
     vertical-align: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     background-color:rgb(22, 70, 124);
-    border: 1px solid rgb(22, 70, 124);
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -360,10 +368,8 @@ footer {
 .allauth-form-inner-content input[type='submit']:hover {	
 	color: #fff;
     background-color: #222;
-    border-color: #222;
 }
 
 .allauth-form-inner-content a {
 	color: #17a2b8; /* text-info */
 }
-

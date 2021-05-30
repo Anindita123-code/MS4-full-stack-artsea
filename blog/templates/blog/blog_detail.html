@@ -47,7 +47,7 @@
                    <!-- form for adding comments -->
                     <div class="form-row">
                         <div class="col-8 offset-2">
-                            <p class="text-muted"></p>
+                            <!-- <p class="text-muted"></p> -->
                             {% csrf_token %}
                             {{ form | crispy }}
                             <input type="submit" class="btn btn-black rounded-0 text-uppercase" value="Add" id="comment_{{ blog.id }}">
@@ -92,16 +92,15 @@
                             </a>
                         </div>
                         <input type="hidden" name="blog" data-item_id="{{ blog.id }}" value="{{ blog.id }}">
-                    </div>
                 </form>
             </div>
         </div>
     </div>
-    <br><br><br>
+  
     
 {% endblock %}
 {% block postloadjs %}
-<script type="text/javascript">
+<script>
 function Togglediv() {
     if ($("#divComments").is(":visible")) {
         $("#divComments").hide();

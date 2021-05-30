@@ -21,9 +21,6 @@ class CommentOnBlog(models.Model):
     email = models.CharField(max_length=254, null=True, blank=True)
     comments = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
-    
+
     def __str__(self):
         return self.comments
-
-
-

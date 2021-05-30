@@ -22,13 +22,32 @@
 ### Functional Testing (User Driven)
 
 #### Viewing and Navigation
-As a User I am able to 
-    * Navigate easily to the Workshop and the Blogs page all over the site
-    * View a list of Workshops and select the workshop that I want to purchase
-    * View Individual Workshop Details and identify the fees, description, associated image, Person conducting, Venue and timings
-    * Easily view the total enrolment amount in order to prioritize my planned workshops
-    * View a list of Topics in the blog	in order to Find out what are the currently active blogs in Artsea
-    * View other users comments as well as mine	and be able to read the comments of self and others given on a particular post
+**As a User I am able to**
+* Navigate easily to the Workshop and the Blogs page all over the site
+    The Navbar on the top of the page allows the user to navigate easily to the Blog as well as the Workshop pages. On wide screens the Logo will route the user to the home page while in small screen the top navbar has an extra "home" link to route the user to the home page always
+    ![Site Home](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/homepage.jpg)
+
+* View a list of Workshops and select the workshop that I want to purchase
+    The user can navigate to view for a filtered list of workshops, using the Workshop Navbar dropdown, and this will take the user to the Workshop list page,
+    ![Workshop List](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/workshop_list.jpg)
+    
+* View Individual Workshop Details and identify the fees, description, associated image, Person conducting, Venue and timings
+    The user can select any one of the listed workshops and go into the workshop detail page which has more details about the individual workshop.
+    ![Workshop Detail](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/workshop_detail.jpg)
+
+* Easily view the total enrolment amount in order to prioritize my planned workshops
+    The user can add the selected workshops in the bag and view the final bag with all the workshops, where they can make a final choice of which one they would be interested in.
+    The subtotals for each workshop and the final grand total is displayed in the shopping bag page.
+    ![Shopping bag](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/shopping_bag.jpg)
+
+* View a list of Topics in the blog	in order to Find out what are the currently active blogs in Artsea
+    On selecting the Blog from the Nav bar the user is routed to the Blog list page, where the currently active blogs along with their published dates are displayed.
+    ![Blog List](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/blog_list.jpg)
+
+* View other users comments as well as mine	and be able to read the comments of self and others given on a particular post
+    On selecting any particular Blog from the blog list page, the user is directed to the Blog detail page, where they can read the Blog content and then post a comment, The user can also read others comments.
+    A guest user, who is not logged in can also get in and be a part of the blog community.
+    ![Single Blog and comment](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/blog_detail.jpg)
 
 #### REGISTRATION AND USER ACCOUNTS
 As a new user, I am able to     
@@ -40,6 +59,7 @@ As a new user, I am able to
 #### FILTERING AND SEARCHING
 As a user of the site I am able to 
     * Filter by the Medium or type of workshop so that I can View my selected list of Workshops only
+    On performing a search, with keywords, the workshops which has a matching title or description will be di
     * Search by the name or description	so that i can View the list of Workshops that matches my search criteria
     * View a list of Workshops that matches the filter or search criteria so that I can quickly decide that the Workshop I am looking for is available
 
@@ -101,12 +121,6 @@ The python code file has been tested for PEP8 compliance, using the PEP8 online 
 
 * I have decided to ignore any warnings on files that are automatically generated. Such as migration and Imports in files that are created automatically. This is because automatically generated files may intentionally ignore style rules for efficiency reasons.
 * Apart from this majority of the PEP8 issues have been taken care of.
-
-**Test for 404 - File not found**
-The 404 error has been trapped to display a more Project Friendly page, which has been tested. On encountering an unknown file the user will be routed to the home page of the website. Below is the snapshot for the same on Error 404
-
-**Test for 500 - Internal Server Error**
-The 500 error has been trapped to display a more Project Friendly page, which has been tested by setting Debug=False and making some code errors so that "The Internal Server Error" can be emulated. Below is the snapshot for the same on Error 500
 
 **Performance Testing**
 A quick Audit was run using Lighthouse Following is a snapshot of the outcome of the Audit using lighthouse Lighthouse Summary

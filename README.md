@@ -80,22 +80,26 @@ The user stories have been documented in the [Artsea User Stories Document](http
 
 | User Story | As A/An User      | I want to be able to                                                                                                  | So that I can                                                                                       |
 |------------|-------------------|-----------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-|            |                   |                                                                                                                       |                                                                                                     |
+| Viewing and Navigation                                                                                                                                                                                                                                       |
+|                                                                                                                                                                                                                                                              |
 | 1          | Student / Shopper | View a list of Workshops                                                                                              | Select the workshop that I want to purchase                                                         |
 | 2          | Student / Shopper | View Individual Workshop Details                                                                                      | Identify the fees, description, associated image, Person   conducting, Venue and timings            |
 | 3          | Student / Shopper | Easily view the total enrolment   amount                                                                              | prioritize my planned workshops                                                                     |
 | 4          | Any user          | View a list of Topics in the   blog                                                                                   | Find out what are the currently active blogs in Artsea                                              |
 | 5          | Any user          | View other users comments as   well as mine                                                                           | Read the comments of self and others given on a particular   post                                   |
-|            |                   |                                                                                                                       |                                                                                                     |
+|                                                                                                                                                                                                                                                              |
+| Registration and User Accounts                                                                                                                                                                                                                               |                          |
 | 6          | Site User         | Easily register for an account                                                                                        | Have a personal account and be able to view my profile                                              |
 | 7          | Site User         | Easily login or logout                                                                                                | Access my personal account information                                                              |
 | 8          | Site User         | Easily recover my password in   case I forget                                                                         | Recover access to my account                                                                        |
 | 9          | Site User         | have a personalized user profile                                                                                      | View and update my personal information and also view my order   history                            |
-|            |                   |                                                                                                                       |                                                                                                     |
+|                                                                                                                                                                                                                                                              |                
+| Filtering and Search                                                                                                                                                                                                                                         |
 | 10         | Student / Shopper | Filter by the Medium or type of   workshop                                                                            | View my selected list of Workshops only                                                             |
 | 11         | Student / Shopper | Search by the name or   description                                                                                   | View the list of Workshops that matches my search criteria                                          |
 | 12         | Student / Shopper | View a list of Workshops that matches the   or search criteria                                                        | Quickly decide that the Workshop I am looking for is available                                      |
-|            |                   |                                                                                                                       |                                                                                                     |
+|                                                                                                                                                                                                                                                              |
+| Purchasing and Checkout                                                                                                                                                                                                                                      |
 | 13         | Student / Shopper | Add the selected workshop into   my shopping bag                                                                      | select the workshops that I want to purchase                                                        |
 | 14         | Student / Shopper | See the subtotal and the Grand total of the items,  including delivery charges (if any) in the shopping bag           | View the breakups of the amount that I have to pay if I go   ahead with the order                   |
 | 15         | Student / Shopper | Allowing users to view items in   their bag to be purchased                                                           | See my selection of items in the shopping bag                                                       |
@@ -108,13 +112,15 @@ The user stories have been documented in the [Artsea User Stories Document](http
 | 22         | Student / Shopper | See an empty shopping bag on   successful purchase                                                                    | see that there is nothing in my shopping bag as the payment   has been successful                   |
 | 23         | Student / Shopper | View my order details                                                                                                 | get an order number which is valid and be sure that I have   made a successful purchase             |
 | 24         | Student / Shopper | Get an email for the order made                                                                                       | use the mail for a formal confirmation of the items that has   been purchased                       |
-|            |                   |                                                                                                                       |                                                                                                     |
-| 25         | superuser         | Create a new blog post                                                                                                | Connect with people using the website to comment and   collaborate                                  |
+|                                                                                                                                                                                                                                                              |    
+| Blogs and User Comments                                                                                                                                                                                                                                      |
+| 25         | superuser         | Create, update and delete a blog post                                                                                 | Connect with people using the website to comment and   collaborate                                  |               
 | 26         | site User         | View the list of Blog Posts                                                                                           | See all the blog topics at once                                                                     |
 | 27         | site User         | Select and read any of the blog   posts                                                                               | Read the blog post in full                                                                          |
 | 28         | site User         | Add a comment to the block post                                                                                       | Share my opinion                                                                                    |
 | 29         | site User         | Read the comments made by other   site user on the blog post                                                          | Learn about others opinion                                                                          |
-|            |                   |                                                                                                                       |                                                                                                     |
+|                                                                                                                                                                                                                                                              |
+| Workshop Record Management                                                                                                                                                                                                                                   |
 | 30         | superuser         | Create a new workshop and add the Title, Category,  Description, Hosted By, Date and time, venue, Image Url and price | Add workshops to the database                                                                       |
 | 31         | superuser         | Notified of any invalid entries   for creating a workshop.                                                            | Make the necessary changes before commiting the records in the   database                           |
 | 32         | superuser         | Notified if the workshop has   been created successfully                                                              | Be sure that they are saved in   the database and will be available for users to enrol for the same |
@@ -247,7 +253,7 @@ Stripe - ecommerce payment system.
 ### Languages
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) for creating the webpages
 - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) for designing and styling the web pages
-- [javascript] (https://www.javascript.com/)
+- [javascript](https://www.javascript.com/)
 - [Python](https://www.python.org/) for the backend development
 ### Database
 - [SQLlite (in Development)]() and [Postgres (at deployment)]() Although Sqllite has been used as the backend database during development, the 
@@ -266,7 +272,7 @@ Stripe - ecommerce payment system.
 
 ## Testing
 
-The test results for Artsea can be found in [here]()
+The test results for Artsea can be found in [here](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/TESTING.md)
 
 ### Validation Checks
 
@@ -276,7 +282,6 @@ The HTML Code used in all the pages are Valid as per W3C standards
 
 #### CSS Validation
 The custom css style.css in the static folder of the project has been validated using [W3C Css Validation service](https://jigsaw.w3.org/css-validator/). No errors were detected. Below is the snapshot for the same.
-[CSS Validation outcome](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/css_validation.png)
 
 #### Javascript Validation
 The custom javascript code has been validated using [jshint](https://jshint.com/). There are two warnings for the 2 statements that has used 'let' to declare variables
@@ -288,14 +293,8 @@ The python code file has been tested for PEP8 compliance, using the [PEP8 online
 The validation output for PEP8 is as follows [PEP8 validation outcome](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/PEP8_validation.png)
 
 ### Test for 404 - File not found
-The 404 error has been trapped to display a more Project Friendly page, which has been tested. On encountering an unknown file the user will be routed to the home page of the website. 
-Below is the snapshot for the same
-[on Error 404](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/400.png)
 
 ### Test for 500 - Internal Server Error
-The 500 error has been trapped to display a more Project Friendly page, which has been tested by setting Debug=False and making some code errors so that "The Internal Server Error" can be emulated.
-Below is the snapshot for the same
-[on Error 500](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/500.png)
 
 ### Performance Testing
 A quick Audit was run using [Lighthouse](https://developers.google.com/web/tools/lighthouse)
@@ -414,10 +413,10 @@ The project is connected to Heroku using automatic deployment from GitPod , usin
     In AWS we need to use the service S3 and IAM. We need to search for the service S3.
 
     Then do the following:
-    * Search for S3.
-    * Create a new bucket and ensure that the Block All Public Access tickbox is unchecked and acknowledge that the bucket will be public
-    * Select Static Website hosting under Properties which would allow static files to be hosted in AWS
-    * Set up the ***Cross-origin resource sharing (CORS)*** in the property tab. The following settings are done in CORS
+    Step 1 - Search for S3.
+    Step 2 - Create a new bucket and ensure that the Block All Public Access tickbox is unchecked and acknowledge that the bucket will be public
+    Step 3 - Select Static Website hosting under Properties which would allow static files to be hosted in AWS
+    Step 4 - Set up the ***Cross-origin resource sharing (CORS)*** in the property tab. The following settings are done in CORS
         [   
             {       
                 "AllowedHeaders": [
@@ -429,16 +428,16 @@ The project is connected to Heroku using automatic deployment from GitPod , usin
             }
         ]
 
-    * Click the Policy Tab and select Policy Generator which creates a security policy for the bucket. This S3 policy needs to be generated by filling th necessary fields
-    * Copy the generated policy in to the Bucket Policy Editor. 
-    * Add /* at the end of the resource key as this will allow access to all resources in the bucket and then save it.
-    * Click the Access Control tab and set the list object permission to everyone under the Public Access section.
-    * Next we need to configure the IAM, So we need to Open IAM from the service menu.
-    * Then we need to create a group and create an access policy for the group which would give access to the S3 bucket.
-    * Click the JSON tab and select import managed policy, search for S3 and select S3 Full Access Policy.
-    * Now we will attach the policy to the group we created (artsea-group for me) by searching the policy we just created and selecting it and then clicking the Attach Policy
-    * Create a user (artsea-staticfiles-user for me), give them programmatic access and attach it to the group. And then click create policy. This takes us back to the policies page where we can see our policy has been created.
-    * Download the CSV file that is generated as this contains the keys required to use AWS.
+    Step 5 - Click the Policy Tab and select Policy Generator which creates a security policy for the bucket. This S3 policy needs to be generated by filling th necessary fields
+    Step 6 - Copy the generated policy in to the Bucket Policy Editor. 
+    Step 7 - Add /* at the end of the resource key as this will allow access to all resources in the bucket and then save it.
+    Step 8 - Click the Access Control tab and set the list object permission to everyone under the Public Access section.
+    Step 9 - Next we need to configure the IAM, So we need to Open IAM from the service menu.
+    Step 10 - Then we need to create a group and create an access policy for the group which would give access to the S3 bucket.
+    Step 11 - Click the JSON tab and select import managed policy, search for S3 and select S3 Full Access Policy.
+    Step 12 - Now we will attach the policy to the group we created (artsea-group for me) by searching the policy we just created and selecting it and then clicking the Attach Policy
+    Step 13 - Create a user (artsea-staticfiles-user for me), give them programmatic access and attach it to the group. And then click create policy. This takes us back to the policies page where we can see our policy has been created.
+    Step 14 - Download the CSV file that is generated as this contains the keys required to use AWS.
 
 Now that we've created an s3 bucket and the appropriate user's groups and security policies for it. The next step is to connect django to it. To do this we'll need to install two new packages.
     
@@ -446,18 +445,18 @@ Now that we've created an s3 bucket and the appropriate user's groups and securi
     $ pip3 install django-storages
     $ pip3 freeze > requirements.txt
 
-    * To connect Jango to s3 we need to add some settings in settings.py to tell it which bucket it should be communicating with. We'll only want to do this on Heroku. So let's add an if statement
-    * to check if there's an environment variable called USE_AWS in the environment. If so we will define the AWS_STORAGE_BUCKET_NAME, AWS_S3_REGION_NAME and our access key, and secret access key, which we'll get from the environment.
-    * With those settings added, we will go to Heroku and add our AWS keys to the config variables along with a key called USE_AWS which is set to true, so that our setting file knows to use the AWS configuration when we deploy to Heroku
-    * Next we will need to remove the disable collectstatic variable so that with our next deployment in Heroku the static files are collected automatically into S3
-    * Back in our settings file we need to tell django where our static files will be coming from in production this would be our bucket name (AWS_STORAGE_BUCKET_NAME in configvars).s3.amazonaws.com
-    * The next step is to tell django that in production we want to use s3 to store our static files whenever someone runs collectstatic And that we want any uploaded product images to go there also we will do this by creating a file called custom_storages.py and create a custom class called static_storage and tell Django that we want to store static files in a location from settings.py (STATICFILES_LOCATION)
-    * The same step is repeated for media files and specify the MEDIAFILES_LOCATION key in settings.py so that whenever we run python3 manage.py runserver collectstatic (While DISABLE_COLLECTSTATIC is set to 0). 
-    * Whenever collectstatic is run Static files will be collected into a static folder in our s3 bucket automatically. To make sure it works, all we have to do is add all these changes. Commit them.
+    Step 15 - To connect Jango to s3 we need to add some settings in settings.py to tell it which bucket it should be communicating with. We'll only want to do this on Heroku. So let's add an if statement
+    Step 16 - to check if there's an environment variable called USE_AWS in the environment. If so we will define the AWS_STORAGE_BUCKET_NAME, AWS_S3_REGION_NAME and our access key, and secret access key, which we'll get from the environment.
+    Step 17 - With those settings added, we will go to Heroku and add our AWS keys to the config variables along with a key called USE_AWS which is set to true, so that our setting file knows to use the AWS configuration when we deploy to Heroku
+    Step 18 - Next we will need to remove the disable collectstatic variable so that with our next deployment in Heroku the static files are collected automatically into S3
+    Step 19 - Back in our settings file we need to tell django where our static files will be coming from in production this would be our bucket name (AWS_STORAGE_BUCKET_NAME in configvars).s3.amazonaws.com
+    Step 20 - The next step is to tell django that in production we want to use s3 to store our static files whenever someone runs collectstatic And that we want any uploaded product images to go there also we will do this by creating a file called custom_storages.py and create a custom class called static_storage and tell Django that we want to store static files in a location from settings.py (STATICFILES_LOCATION)
+    Step 21 - The same step is repeated for media files and specify the MEDIAFILES_LOCATION key in settings.py so that whenever we run python3 manage.py runserver collectstatic (While DISABLE_COLLECTSTATIC is set to 0). 
+    Step 22 - Whenever collectstatic is run Static files will be collected into a static folder in our s3 bucket automatically. To make sure it works, all we have to do is add all these changes. Commit them.
         and then issue a git push. Which will trigger an automatic deployment to Heroku. With that done if we look at the build log. We can see that all the static files were collected successfully.
         And if we now go to s3 We can see we have a static folder in our bucket with all our static files in it.
-    * While our app is deploying we will add media files to s3. We can do this by creating a new folder in S3 called media, and upload the workshop and related images for the site
-    * Next under manage public permissions, we have to grant public read access to these objects and then click upload. 
+    Step 23 - While our app is deploying we will add media files to s3. We can do this by creating a new folder in S3 called media, and upload the workshop and related images for the site
+    Step 24 - Next under manage public permissions, we have to grant public read access to these objects and then click upload. 
 
 So now my AWS has both my static and my media files that are needed to run the application.
 

@@ -2,11 +2,8 @@
 {% load static %}
 {% load bag_tools %}
 
-{% block extra_css %}
-    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
-{% endblock %}
-
 {% block page_header %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
     <div class="container header-container-page">
         <div class="row">
             <div class="col"></div>
@@ -134,14 +131,14 @@
             </div>
         </div>
     </div>
-</div>
-<div id="loading-overlay">
-    <h1 class="text-light logo-font loading-spinner">
-        <span class="icon">
-            <i class="fas fa-3x fa-sync-alt fa-spin"></i>
-        </span>
-    </h1>
-</div>
+
+   <div id="loading-overlay">
+        <h1 class="text-light logo-font loading-spinner">
+            <span class="icon">
+                <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+            </span>
+        </h1>
+    </div> 
 {% endblock %}
 
 {% block postloadjs %}

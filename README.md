@@ -59,9 +59,10 @@ Following is a brief understanding of the Models that have been created in Djang
 * blogs - stores all the blog topics with associated writeup and images (if any)
 * BlogComments - stores and displays all the blog reviews/comments which are posted by users for each individual blog
 
-The Entity Relationship Diagram is as follows. 
+The Entity Relationship Diagram for custom development is as follows. 
 
-![Entity Relationship Diagram](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/Design/Dbdiagram/ArtSea_artWorkshop_db.pdf)
+![Entity Relationship Diagram](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/Database_Diagram.png)
+A detailed Entity Relationship Diagram can be found in this link [The Database Diagram pdf](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/DATABASE/ArtSea_artWorkshop_DBDiagram.pdf)
 
 ### Skeleton Plane
 

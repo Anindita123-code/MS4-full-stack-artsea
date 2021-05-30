@@ -23,38 +23,38 @@
 
 #### Viewing and Navigation
 **As a User I am able to**
-* Navigate easily to the Workshop and the Blogs page all over the site
+*   Navigate easily to the Workshop and the Blogs page all over the site
     The Navbar on the top of the page allows the user to navigate easily to the Blog as well as the Workshop pages. On wide screens the Logo will route the user to the home page while in small screen the top navbar has an extra "home" link to route the user to the home page always
     
     ![Site Home](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/homepage.jpg)
 
 
-* View a list of Workshops and select the workshop that I want to purchase
+*   View a list of Workshops and select the workshop that I want to purchase
     The user can navigate to view for a filtered list of workshops, using the Workshop Navbar dropdown, and this will take the user to the Workshop list page,
     
     ![Workshop List](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/workshop_list.jpg)
 
 
-* View Individual Workshop Details and identify the fees, description, associated image, Person conducting, Venue and timings
+*   View Individual Workshop Details and identify the fees, description, associated image, Person conducting, Venue and timings
     The user can select any one of the listed workshops and go into the workshop detail page which has more details about the individual workshop.
 
     ![Workshop Detail](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/workshop_detail.jpg)
 
 
-* Easily view the total enrolment amount in order to prioritize my planned workshops
+*   Easily view the total enrolment amount in order to prioritize my planned workshops
     The user can add the selected workshops in the bag and view the final bag with all the workshops, where they can make a final choice of which one they would be interested in.
     The subtotals for each workshop and the final grand total is displayed in the shopping bag page.
 
     ![Shopping bag](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/shopping_bag.jpg)
 
 
-* View a list of Topics in the blog	in order to Find out what are the currently active blogs in Artsea
+*   View a list of Topics in the blog	in order to Find out what are the currently active blogs in Artsea
     On selecting the Blog from the Nav bar the user is routed to the Blog list page, where the currently active blogs along with their published dates are displayed.
 
     ![Blog List](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/blog_list.jpg)
 
 
-* View other users comments as well as mine	and be able to read the comments of self and others given on a particular post
+*   View other users comments as well as mine	and be able to read the comments of self and others given on a particular post
     On selecting any particular Blog from the blog list page, the user is directed to the Blog detail page, where they can read the Blog content and then post a comment, The user can also read others comments.
     A guest user, who is not logged in can also get in and be a part of the blog community.
 
@@ -63,8 +63,8 @@
 
 #### REGISTRATION AND USER ACCOUNTS
 **As a new user, I am able to**    
-    * Easily register for an account so that I can Have a personal account and be able to view my profile
-    A new user can signup and create an account which can be stored for prefilling the form when they shop anything from the site.
+*   Easily register for an account so that I can Have a personal account and be able to view my profile
+    *   A new user can signup and create an account which can be stored for prefilling the form when they shop anything from the site.
     This is done, by selecting the User account on top right hand corner and selecting Signin. On doing so the following page shows up.
 
     ![New user signin](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/user_signup.jpg)
@@ -74,39 +74,38 @@
     ![Successful Signup](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/signin_success.jpg) 
 
 **As an existing user, I can**    
-    * Easily login or logout so that I can Access my personal account information
+*    Easily login or logout so that I can Access my personal account information
     A returning user can use their userid and password to login to their account by selecting login from the User Account in the home page. If the userid and password matches then the user is routed to the Workshops page, else an error message pops out to let the user know that he has to make another try
     Folloing is the snapshot of the login page with error message. 
 
     ![Login page-invalid signin](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/invalid_userid.jpg) 
     
-    * Easily recover my password in case I forget so that I can Recover access to my account
+    *   Easily recover my password in case I forget so that I can Recover access to my account
     In case the user forgets their password they can recover it using the Forgot password page as below
 
     ![Password Reset](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/forgot_password.jpg)
 
-    * have a personalized user profile so that I can View and update my personal information and also view my order history
+    *   have a personalized user profile so that I can View and update my personal information and also view my order history
     A logged in user can have all his information stored in a common location, under "My Profile" from where he can update his information to keep currently
 
     ![Uer Profile](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/user_profile.jpg)
 
 #### FILTERING AND SEARCHING
 **As a user of the site I am able to** 
-    * Filter by the Medium or type of workshop so that I can View my selected list of Workshops only
+*    Filter by the Medium or type of workshop so that I can View my selected list of Workshops only
     The navbar with the workshop has a dropdown list, using which the user can filter the workshops by categories
 
     ![Filtering by Category](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/sitenav.jpg)
 
-    * Search by the name or description	so that i can View the list of Workshops that matches my search criteria
+    *   Search by the name or description	so that i can View the list of Workshops that matches my search criteria
     The search bar on the top of the main navbar, can search for workshops which has matching words in the workshop title or the workshop description. Once found, the matching workshops are displayed as search results
 
     ![Search result page](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/workshop_search_result.jpg)
 
-    * View a list of Workshops that matches the filter or search criteria so that I can quickly decide that the Workshop I am looking for is available
+    *   View a list of Workshops that matches the filter or search criteria so that I can quickly decide that the Workshop I am looking for is available
     The workshop list matching the filter condition is displayed below.
 
     ![Workshop filter](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/workshop_filter.jpg)
-
 
 #### PURCHASIMG AND Checkout
 
@@ -226,24 +225,31 @@ If there is no image associated with the workshop. A no-image.jpg is created and
 ***HTML Validation**
 The HTML for the project has been validated using [W3C's Validation service](https://validator.w3.org/). 
 The generated html is complaint as per W3C standards with no errors / warnings
+![html validation](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/html.jpg)
 
 **CSS Validation**
 There are two css files used in the project the main css file is the  base.css is in the /static/css/ folder and the second one is the checkout.css in the static folder of checkout
 The contents of both these files have been validated with [W3C's CSS Validator](https://jigsaw.w3.org/css-validator/). Both the files comply well with this validation.
+![CSS Validation](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/css.jpg)
 
 **Javascript Validation**
 The custom javascript code has been validated using [JShint](https://jshint.com/). There are two warnings 
 *   One is for the use of $ which has been used for Jquery references, and hence will need to stay
 *   is the use of (``) template literals, which also need to stay, as they are implemented in handling a key functionality for stripe payments. 
+![Javascript](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/jshint.jpg)
 
 **PEP8 Compliance**
 The python code file has been tested for PEP8 compliance, using the PEP8 online The validation output for PEP8 is as follows 
     $ Python3 -m flake8
 
+I have been able to work on the issues and following is the outcome.
 * I have decided to ignore any warnings on files that are automatically generated. Such as migration and Imports in files that are created automatically. This is because automatically generated files may intentionally ignore style rules for efficiency reasons.
 * Apart from this majority of the PEP8 issues have been taken care of.
 
 **Performance Testing**
 A quick Audit was run using Lighthouse Following is a snapshot of the outcome of the Audit using lighthouse Lighthouse Summary
+![Lighthouse Performance](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/lighthouse.jpg)
+
+A more detailed report can be found [here](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/lighthouse.html)
 
 [BACK TO README FILE](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README.md)

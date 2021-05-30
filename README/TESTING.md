@@ -1,10 +1,19 @@
 
 
-# Artsea - Milestone4 Project - Testing 
+# Artsea - Milestone 4 Project - Testing 
 [live link of the website](https://anindita-artsea.herokuapp.com/)
 
 ## Table of Contents
-
+- [MANUAL TESTING](#manual-testing)
+  * [Functional Testing (User Driven)](#functional-testing--user-driven-)
+    + [Viewing and Navigation](#viewing-and-navigation)
+    + [REGISTRATION AND USER ACCOUNTS](#registration-and-user-accounts)
+    + [FILTERING AND SEARCHING](#filtering-and-searching)
+    + [PURCHASIMG AND Checkout](#purchasimg-and-checkout)
+    + [BLOGS AND USER comments](#blogs-and-user-comments)
+    + [WORKSHOP RECORD MANAGEMENT](#workshop-record-management)
+- [AUTOMATED TESTING](#automated-testing)
+  * [Validation Tests](#validation-tests)
 
 ## MANUAL TESTING
 * Chrome Developer Tools were used to test responsiveness on all screen sizes.
@@ -251,5 +260,15 @@ A quick Audit was run using Lighthouse Following is a snapshot of the outcome of
 ![Lighthouse Performance](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/lighthouse.jpg)
 
 A more detailed report can be found [here](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/snapshots/lighthouse.html)
+
+**Test for 404 - File not found**
+
+As per the internal built in 404 error message display of Django Framework with Debug set to False in code
+
+**Test for 500 - Internal Server Error**
+
+As per the internal built in 500 error message display of Django Framework with Debug set to False in code
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 [BACK TO README FILE](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README.md)

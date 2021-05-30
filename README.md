@@ -4,6 +4,36 @@
 [live link of the website](https://anindita-artsea.herokuapp.com/)
 
 ## Table of Contents
+- [Project Overview](#project-overview)
+- [User Experience](#user-experience)
+  * [Strategy Plane](#strategy-plane)
+  * [Scope Plane](#scope-plane)
+  * [Structure Plane](#structure-plane)
+  * [Database Architecture](#database-architecture)
+  * [Skeleton Plane](#skeleton-plane)
+  * [User stories](#user-stories)
+  * [Design Choices](#design-choices)
+    + [Fonts](#fonts)
+    + [Icons](#icons)
+    + [Colors](#colors)
+    + [Styling](#styling)
+- [Project Features](#project-features)
+  * [Existing Features](#existing-features)
+  * [Features Left to Implement (none)](#features-left-to-implement--none-)
+- [Technologies Used](#technologies-used)
+  * [Languages](#languages)
+  * [Database](#database)
+  * [Libraries and Frameworks](#libraries-and-frameworks)
+  * [Hosting](#hosting)
+- [Testing](#testing)
+- [Deployment](#deployment)
+  * [Deploy to Heroku](#deploy-to-heroku)
+  * [Access to code](#access-to-code)
+- [Credits](#credits)
+  * [Content](#content)
+  * [Media](#media)
+  * [Acknowledgements](#acknowledgements)
+  * [Contact](#contact)
 
 
 ## Project Overview
@@ -165,6 +195,7 @@ Some of the bootstrap classes have been modified to fulfill the specific needs o
 **FEATURES IMPLEMENTED**
 
 ***Elements Across the wewbsite***
+
 Bootstrap Grid system have been used to structure pages and make them responsive for various viewports.
 Bootstrap NavBar navbar to allow easy navigation throughout the web app. Able to reach all pages of the app from the NavBar. For mobile and smaller devices the navbar is found in the hamburger menu.
 Bootstrap NavBar contains site title, which acts as a home button, dropdowns for accessing account actions, link to shopping basket and filters to help navigate the site.
@@ -176,21 +207,25 @@ Bootstrap Toasts used for all flashed messages after completion of an action.
 Search bar at the top of the screen that is linked to keyword searches to display workshops with matching words in the Title and Description fields.
 
 ***Home Page Elements***
+
 A hero Image on top in-tune with the theme of the project
 A short writeup about the objective of the website and a link which takes the user to the workshop page
 
 ***Login Page Elements***
+
 User login form allowing input from the user for their username and password with "Sign In" submit button which queries the Database to check the validity of the user.
 If the user is valid, a toast message is displayed and the user is redirected to the Workshops page.
 If a matching user is not found, the user cannot proceed further, and an error message is generated
 Links are displayed to allow the user to register or to reset their password.
 
 ***Registration Page Elements***
+
 Registration form expecting the following input from the user: 
-- email address, confirm email address, username, password, confirm password.
+email address, confirm email address, username, password, confirm password.
 "Sign Up" submit button sends info to DB and shows a verification page prompting the user to confirm that they want to sign up.
 
 ***Workshops Page Elements***
+
 This page displayes Workshop information using Bootstrap cards along with the associated image of the workshop
 The user can get into a more detailed understanding of the workshop by clicking the picture, which takes the user to the Workshop detail page
 On Clicking the Category name, associated with the workshop, the user will be able to filter, and display, all the workshops for that Category
@@ -198,6 +233,7 @@ On Clicking the Category name, associated with the workshop, the user will be ab
 If the user is a SuperUser, Edit/Delete pills will be displayed to allow easy Workshop Management.
 
 ***Workshop Detail Page Elements***
+
 In the detail page for the workshop, to the left, the associated image of the workshop is displayed, if there is no image associated, then the no_image.jpg is displayed
 To the right the title, description, venue, date & time, Hosted by name and price along with quantity selector is displayed.
 Plus/Minus quantity icons are placed either side of Number Input Field which can also be manually updated or using the up/down arrows that appear in the field.
@@ -205,12 +241,14 @@ Two buttons - add to bag and keep shopping - are below the quantity input field.
 Keep Shopping returns the user to the All Workshop page and Add to Bag adds items to the bag which displays a Bootsrap Toast success html which will show the items of the bag and the total amount purchased. 
 
 ***Shopping bag page elements***
+
 This page is displayed after the user adds the items into the shopping bag and selects to do checkout
 The user will be able to adjust the quantity of the items in the basket using the plus/minus icons and clicking the update link or remove the whole line by clicking the remove link.
 The grand total along with the taxes or delivery charge (if any) is computed and displayed for a particular order
 The buttons at the bottom allow the user to confirm that they wish to proceed with paying and takes them to the checkout page or to return to the all products page.
 
 ***Checkout Page Elements***
+
 After the user finalizes their purchase, they can move ahead to do a checkout and make the payment of the purchase.
 This page is divided into two parts, the first one, shows the order summary, the second part shows a form requesting for demographic information about the user.
 The user must populate the form on the left before being able to continue the checkout process.
@@ -220,16 +258,19 @@ Buttons at the bottom allow the user to go back to the shopping bag and make adj
 **Once the user submits the payment information an opaque overlay appears to show that the payment is being processed.
 
 ***Checkout Success / Order Confirmation Page***
+
 The order confirmation page lists out the order number and the detail of the purchase along with the subtotal and grandtotal.
 A button under the summary directs the user to the Events page 
 The user can browse back to the Workshops Page on onward to Read the Published Blogs in the site.
 
 ***Blog list Page***
+
 A signed in or anonymous user, can navigate to the Blog page using the Navigation links at the top of the page. 
 The Blog list plays displays the list of Active Blogs, their author names and the date on which the blog was published.
 The user can select any one to read and is directed to the Blog detail page
 
 ***Blog detail Page elements***
+
 Any user can read the go to the blog detail page to read and comment on the blog post. 
 Users can read other users comments which are displayed below the Blog itself.
 Users can post their comments on the blog by using the form below, with their names, email-id and the comments and selecting Post.
@@ -274,33 +315,6 @@ Stripe - ecommerce payment system.
 ## Testing
 
 The test results for Artsea can be found in [here](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/TESTING.md)
-
-### Validation Checks
-
-#### HTML Validation
-The HTML for the project has been validated using [W3C's Validation service](https://validator.w3.org/). Since the HTML is created and maintained as separate parts in templates, the page HTML's have been taken using View->Developer->View Source and the code blocks have been tested for Validity.
-The HTML Code used in all the pages are Valid as per W3C standards
-
-#### CSS Validation
-The custom css style.css in the static folder of the project has been validated using [W3C Css Validation service](https://jigsaw.w3.org/css-validator/). No errors were detected. Below is the snapshot for the same.
-
-#### Javascript Validation
-The custom javascript code has been validated using [jshint](https://jshint.com/). There are two warnings for the 2 statements that has used 'let' to declare variables
-However, since the variables used are applicable for the current block of code only, I have decided to go ahead with the two warnings. 
-The screenshot for javascript validation is [Javascript validation outcome](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/javascript_validation.png)
-
-#### PEP8 Compliance
-The python code file has been tested for PEP8 compliance, using the [PEP8 online](http://pep8online.com/)
-The validation output for PEP8 is as follows [PEP8 validation outcome](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/PEP8_validation.png)
-
-### Test for 404 - File not found
-
-### Test for 500 - Internal Server Error
-
-### Performance Testing
-A quick Audit was run using [Lighthouse](https://developers.google.com/web/tools/lighthouse)
-Following is a snapshot of the outcome of the Audit using lighthouse
-![Lighthouse Summary](https://github.com/Anindita123-code/Milestone3_Data_Centric/blob/master/test-snapshots/Performance_test.png)
 
 ## Deployment
 
@@ -498,12 +512,11 @@ Once this is done, the Project can be run from the local using the following com
 
 ## Credits
 * For creating the sitemap I have used [Gloomaps](https://www.gloomaps.com/EJjeybEnhs)
-* For Creating the Data Flow Diagram I have used [Miro](https://miro.com/app/board/o9J_lWeK1kc=/)
 * For creating the favicon.ico I have used [Gauger.io](https://gauger.io/fonticon/)
 * I have used [Dbdiagrams.io](https://dbdiagram.io/home) for creating the Entity Relationship Diagram for the website
 * I owe a huge thank you to [Stack Overflow](https://stackoverflow.com/) for addressing most of my queries.
 * The Boutique Ado application of Code Institute Training modules has been a huge inspiration for doing this project.
-* Table of contents generated in the Readme has been generated with the help of markdown-toc
+* Table of contents generated in the Readme has been generated with the help of [markdown-toc](https://ecotrust-canada.github.io/markdown-toc/)
 * All images and contents of books have been taken from real workshops of Art studios that I am connected with in Copenhagen
 * I am thankful to my Mentor Aaron Signott for his able guidance in this project.
 * I am thankful to the Peer review Group of CI and May-2020 group on slack for giving me a lot of feedback to improve my project, and encouraged me all along this journey.
@@ -517,6 +530,8 @@ Once this is done, the Project can be run from the local using the following com
 
 ### Acknowledgements
 * I have been inspired to take up the Artsea project, as I look forward to host a similar kind of website in the future which would tie all art studios in Denmark together and give information to users in one common place.
+* I acknowledge that the Artsea project has been created as part of the curriculum in CI, and the intension is to learn the module of Full Stack Framework using Django
+* I would like to thank the student support and the slack channels of CI to help me come this far.
 
 ### Contact
 In case of further questions and concerns please feel free to reach out to me at aninditasom@gmail.com.

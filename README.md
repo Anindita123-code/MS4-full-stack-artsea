@@ -99,15 +99,15 @@ A detailed Entity Relationship Diagram can be found in this link [The Database D
 A detail UX design has been done for Artsea and the wireframe designs were finalized which was the key deliverable of the design phase
 
 The wireframes for the project can be found in the attached pdf file
-* Wireframe for Web browser on Desktop/laptop [web browser](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/Design/Wireframes/Browser%20wireframes%20Artsea%20v1.pdf)
-* Wireframe for iPad View [Ipad](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/Design/Wireframes/ipad%20wireframes%20Artsea%20v1.pdf)
-* Wireframe for phone /iphone [Mobile](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/Design/Wireframes/iphone%20wireframes%20Artsea%20v1.pdf)
+* Wireframe for Web browser on Desktop/laptop [web browser](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/DESIGN/Wireframes/Browser%20wireframes%20Artsea%20v1.pdf)
+* Wireframe for iPad View [Ipad](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/DESIGN/Wireframes/ipad%20wireframes%20Artsea%20v1.pdf)
+* Wireframe for phone /iphone [Mobile](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/DESIGN/Wireframes/iphone%20wireframes%20Artsea%20v1.pdf)
 
 The representation of the information of this system is treated differently in different devices. The system uses the rule of three to organize data in accordance with the devices that run the application. 
 
 ### User stories
 
-The user stories have been documented in the [Artsea User Stories Document](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/Design/User%20Stories/UserStories_artsea.xlsx)
+The user stories have been documented in the [Artsea User Stories Document](https://github.com/Anindita123-code/MS4-full-stack-artsea/tree/master/DESIGN/User%20Stories)
 
 | User Story | As A/An User      | I want to be able to                                                                                                  | So that I can                                                                                       |
 |------------|-------------------|-----------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
@@ -171,11 +171,11 @@ I have hence chosen color combination that gives a warm feeling and is easy to g
 * For the Logo is a combination of the font's 'Goblin One' and 'Caveat'. The subheadings of each page, I have used a cursive version of 'Goblin One' of small size, so that it gets more weightage than the rest of the site content. 
 * For the Nav bar, I have used "Roboto Slab" which I think fitted very well to put that highlight on the nav elements
 * For the Blog title, I have used "Roboto Slab" and the rest of the blog contents, I have used Roboto as well.
-**The fonts, used are all taken from Googlefonts**
+**The fonts, used are all taken from [Googlefonts](https://fonts.google.com/)**
 
 #### Icons
 * I have used Icons for specifying the User authentication, Shopping bag, Search, the + and - for quantity selection, and the back buttons of the overall site.
-    - The icons has been taken from fontawesome
+    - The icons has been taken from [fontawesome](https://fontawesome.com/)
 
 #### Colors
 I have kept minimum colors for this website and kept a balance with white and brighter tones, as this deals with colors and visual art. 
@@ -298,7 +298,7 @@ Stripe - ecommerce payment system.
 - [javascript](https://www.javascript.com/)
 - [Python](https://www.python.org/) for the backend development
 ### Database
-- [SQLlite (in Development)]() and [Postgres (at deployment)]() Although Sqllite has been used as the backend database during development, the 
+- [SQLlite (in Development)](https://www.sqlite.org/index.html) and [Postgres (at deployment)](https://www.postgresql.org/) Although Sqllite has been used as the backend database during development, the 
 ### Libraries and Frameworks
 - [Font Awesome](https://fontawesome.com/) - have been used for the button icons that are used in the website
 - [Google Fonts](https://fonts.google.com/) have been used to give the website a uniform look with the help of fonts provided by google
@@ -314,7 +314,7 @@ Stripe - ecommerce payment system.
 
 ## Testing
 
-The test results for Artsea can be found in [here](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/TESTING.md)
+The test results for Artsea can be found in [HERE](https://github.com/Anindita123-code/MS4-full-stack-artsea/blob/master/README/TESTING.md)
 
 ## Deployment
 
